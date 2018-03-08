@@ -1,0 +1,9 @@
+source ~/.vimrc
+
+" Reload .ideavimrc
+nnoremap <Space>vs :source ~/.ideavimrc<CR>
+
+"=============
+"   Plugins
+"=============
+set surround

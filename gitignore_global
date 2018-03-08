@@ -1,0 +1,13 @@
+# IDEA project folder
+.idea/
+
+# VSCode project folder
+.vcode/
+
+# VIM ignore
+*~
+*.swp
+*.swo
+*.netrwhist
+Session.vim
+tags
