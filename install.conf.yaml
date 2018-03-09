@@ -6,21 +6,20 @@
 - clean: ['~']
 
 - shell: 
-  - ["mkdir -p ~/.config", "Creating config folder"]
-
+  - [mkdir -p ~/.config, "Creating config folder"]
+  - [mkdir -p ~/Programs, "Creating Programs folder"]
+    
 - link: 
     ~/.dotfiles: ''
     ~/.gitignore_global: gitignore_global
-    ~/.config/terminator:
-      create: true
-      path: terminator
+    ~/.config/terminator: terminator
     ~/.vim: vim
-    ~/.vimrc:
-      relink: true
-      path: vimrc
+    ~/.vimrc: vimrc
     ~/.ideavimrc: ideavimrc
     ~/.bashrc: bashrc
     ~/.eslintrc: eslintrc
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+  - [git submodule update --init --recursive, Updating Submodules]
+  - sudo pip install jedi
+    # TODO: When aliases are done, make installations here.
