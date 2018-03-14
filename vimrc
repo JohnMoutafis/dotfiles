@@ -15,7 +15,7 @@ set history=50
 set nobackup
 set nowb
 set noswapfile
-set clipboard=unnamed " Yanks go on clipboard.
+set clipboard=unnamedplus " Yanks go on clipboard.
 
 "==============
 "    Search
