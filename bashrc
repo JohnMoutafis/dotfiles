@@ -1,5 +1,3 @@
-
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -187,3 +185,9 @@ alias python-simpleServer8002="python -m SimpleHTTPServer 8002"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function sunglasses() {
+  echo -en " ( •_•)     \r"; sleep .5;
+  echo -en " ( •_•)>⌐■-■\r"; sleep 1;
+  echo     " (⌐■_■)     ";   sleep 1;
+}

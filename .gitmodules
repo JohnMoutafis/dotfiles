@@ -13,3 +13,9 @@
 [submodule "vim/pack/plugins/start/python-mode"]
 	path = vim/pack/plugins/start/python-mode
 	url = https://github.com/python-mode/python-mode.git
+[submodule "vim/pack/plugins/start/vim-surround"]
+	path = vim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/pack/plugins/start/auto-pairs"]
+	path = vim/pack/plugins/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git

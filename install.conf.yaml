@@ -10,7 +10,6 @@
   - [mkdir -p ~/Programs, "Creating Programs folder"]
     
 - link: 
-    ~/.dotfiles: ''
     ~/.gitignore_global: git/gitignore_global
     ~/.gitconfig: git/gitconfig
     ~/.config/terminator: terminator
