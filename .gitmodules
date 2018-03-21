@@ -19,3 +19,6 @@
 [submodule "vim/pack/plugins/start/auto-pairs"]
 	path = vim/pack/plugins/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "vim/pack/plugins/start/vim-powerline"]
+	path = vim/pack/plugins/start/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
