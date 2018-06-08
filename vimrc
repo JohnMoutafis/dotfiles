@@ -61,13 +61,4 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
-" pymode
-let g:pymode_python = 'python3'
-let g:pymode_trim_whitespaces = 1
-let g:pymode_options_max_line_length = 99
-let g:pymode_options_colorcolumn = 1
-let g:pymode_indent = 1
-let g:pymode_folding = 0
-let g:pymode_virtualenv = 1
-
 hi pythonSelf  ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold

@@ -10,9 +10,6 @@
 [submodule "vim/pack/plugins/start/ale"]
 	path = vim/pack/plugins/start/ale
 	url = https://github.com/w0rp/ale.git
-[submodule "vim/pack/plugins/start/python-mode"]
-	path = vim/pack/plugins/start/python-mode
-	url = https://github.com/python-mode/python-mode.git
 [submodule "vim/pack/plugins/start/vim-surround"]
 	path = vim/pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
@@ -22,3 +19,6 @@
 [submodule "vim/pack/plugins/start/vim-powerline"]
 	path = vim/pack/plugins/start/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/pack/plugins/start/vim-virtualenv"]
+	path = vim/pack/plugins/start/vim-virtualenv
+	url = https://github.com/plytophogy/vim-virtualenv
