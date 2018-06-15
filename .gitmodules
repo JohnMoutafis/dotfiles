@@ -4,9 +4,6 @@
 [submodule "vim/pack/plugins/start/minimalist"]
 	path = vim/pack/plugins/start/minimalist
 	url = https://github.com/dikiaap/minimalist.git
-[submodule "vim/pack/plugins/start/completor.vim"]
-	path = vim/pack/plugins/start/completor.vim
-	url = https://github.com/maralla/completor.vim.git
 [submodule "vim/pack/plugins/start/ale"]
 	path = vim/pack/plugins/start/ale
 	url = https://github.com/w0rp/ale.git
@@ -22,3 +19,6 @@
 [submodule "vim/pack/plugins/start/vim-virtualenv"]
 	path = vim/pack/plugins/start/vim-virtualenv
 	url = https://github.com/plytophogy/vim-virtualenv
+[submodule "vim/pack/plugins/start/completor.vim"]
+	path = vim/pack/plugins/start/completor.vim
+	url = https://github.com/maralla/completor.vim

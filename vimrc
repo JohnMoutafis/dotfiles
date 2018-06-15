@@ -55,6 +55,9 @@ nnoremap <C-H> <C-W><C-H>
 " Plugin Config
 "===============
 
+" Python virtualenv folder
+let g:virtualenv_directory = '~/.virtualenvs'
+
 " completor
 let g:completor_python_binary = "/usr/bin/python"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
