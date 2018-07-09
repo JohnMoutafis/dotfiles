@@ -21,6 +21,8 @@
 
 - shell:
   - [git submodule update --init --recursive, Updating Submodules]
+  - sudo pip install virtualenv
+  - sudo pip install virtualenvwrapper
   - sudo pip install jedi
     # TODO: Rust and cargo install.
     # TODO: When aliases are done, make installations here.
