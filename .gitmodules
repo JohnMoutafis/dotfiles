@@ -25,3 +25,6 @@
 [submodule "bash-git-prompt"]
 	path = bash-git-prompt
 	url = https://github.com/magicmonty/bash-git-prompt.git
+[submodule "gestures/libinput-gestures"]
+	path = gestures/libinput-gestures
+	url = https://github.com/bulletmark/libinput-gestures.git

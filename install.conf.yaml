@@ -20,6 +20,7 @@
     ~/.bash-git-prompt: bash-git-prompt
     ~/.bashrc: bashrc
     ~/.eslintrc: eslintrc
+    ~/.config/libinput-gestures.conf: gestures/libinput-gestures.conf
 
 - shell:
   - [git submodule update --init --recursive, Updating Submodules...]
@@ -37,3 +38,4 @@
   - [sudo pip install jedi && sudo pip3 install jedi, Installing jedi...]
     # TODO: Rust and cargo install.
     # TODO: When aliases are done, make installations here.
+  - [sh ~/.dotfiles/gestures/enable_gestures.sh, Enabling touchpad gestures...]
