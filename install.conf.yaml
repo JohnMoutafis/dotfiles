@@ -16,13 +16,24 @@
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.ideavimrc: ideavimrc
+    ~/.aliases: aliases
+    ~/.bash-git-prompt: bash-git-prompt
     ~/.bashrc: bashrc
     ~/.eslintrc: eslintrc
 
 - shell:
-  - [git submodule update --init --recursive, Updating Submodules]
-  - sudo pip install virtualenv
-  - sudo pip install virtualenvwrapper
-  - sudo pip install jedi
+  - [git submodule update --init --recursive, Updating Submodules...]
+  - [sudo apt update, Updating existing packages...]
+  - [sudo apt install libgdal-dev, Installing libgdal-dev]
+  - [sudo apt install python-dev python3-dev, Installing python-dev...]
+  - [sudo apt install python-pip python3-pip -y, Installing pip...]
+  - [sudo apt install r-base, Installing R...]
+  - [
+      sudo pip install virtualenv virtualenvwrapper &&
+      sudo pip3 install virtualenv virtualenvwrapper,
+      Installing virtualenv and virtualenvwrapper...
+    ]
+  - [sudo pip install pipenv && sudo pip3 install pipenv, Installing pipenv...]
+  - [sudo pip install jedi && sudo pip3 install jedi, Installing jedi...]
     # TODO: Rust and cargo install.
     # TODO: When aliases are done, make installations here.

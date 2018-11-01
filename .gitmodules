@@ -22,3 +22,6 @@
 [submodule "vim/pack/plugins/start/completor.vim"]
 	path = vim/pack/plugins/start/completor.vim
 	url = https://github.com/maralla/completor.vim
+[submodule "bash-git-prompt"]
+	path = bash-git-prompt
+	url = https://github.com/magicmonty/bash-git-prompt.git
