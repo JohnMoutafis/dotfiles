@@ -1,0 +1,16 @@
+# Compiled files
+*.pyc
+
+# Databases
+*.sql
+*.sqlite
+
+# Editing tools
+*~
+*.swp
+*.swo
+*.netrwhist
+Session.vim
+tags
+.idea/
+.vscode/

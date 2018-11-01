@@ -1,0 +1,54 @@
+#======================
+#       SYSTEM
+#======================
+alias su='sudo -i'
+alias root='sudo -i'
+alias reboot='sudo /sbin/reboot'
+alias shutdown='sudo /sbin/shutdown'
+
+alias update='sudo apt-get update'
+alias upgrade='sudo apt-get upgrade'
+alias install='sudo apt-get install'
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+
+    alias l='ls -CF --color=auto --group-directories-first'
+    alias la='ls -A --color=auto --group-directories-first'
+    alias ll='ls -alF --color=auto --group-directories-first'
+    alias ls='ls --color=auto --group-directories-first'
+    alias dir='dir --color=auto --group-directories-first'
+    alias vdir='vdir --color=auto --group-directories-first'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+#======================
+#       UTILITY
+#======================
+alias debug-smtp='python -m smtpd -n -c DebuggingServer localhost:1025'
+alias my_ip='curl ipinfo.io/ip'
+alias local_ip='hostname -I'
+alias wget='wget -c'
+alias untar='tar -zxvf '
+alias serve='python -m SimpleHTTPServer 8000'
+
+alias redis-server='~/redis-stable/src/redis-server'
+alias redis-cli='~/redis-stable/src/redis-cli'
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#======================
+#        FUNNY
+#======================
+function sunglasses() {
+  echo -en " ( •_•)     \r"; sleep .25;
+  echo -en " ( •_•)>⌐■-■\r"; sleep .25;
+  echo     " (⌐■_■)       ";
+}

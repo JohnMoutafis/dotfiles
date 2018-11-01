@@ -1,0 +1,24 @@
+[user]
+    name = John Moutafis
+    useConfigOnly = true
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+
+[alias]
+    update-submodules = submodule update --init --recursive
+    upgrade-submodules = submodule update --init --remote
+    switch-or-create = "!f() { git checkout $1 2>/dev/null || git checkout -b $1; }; f"
+
+[merge]
+    tool = meld
+[mergetool "meld"]
+    cmd = meld "$BASE $LOCAL $REMOTE $MERGED"
+    trustExitCode = false
+
+[diff]
+    tool = meld
+[difftool "meld"]
+    cmd = meld "$LOCAL $REMOTE"
+
