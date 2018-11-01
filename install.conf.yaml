@@ -36,6 +36,4 @@
     ]
   - [sudo pip install pipenv && sudo pip3 install pipenv, Installing pipenv...]
   - [sudo pip install jedi && sudo pip3 install jedi, Installing jedi...]
-    # TODO: Rust and cargo install.
-    # TODO: When aliases are done, make installations here.
   - [sh ~/.dotfiles/gestures/enable_gestures.sh, Enabling touchpad gestures...]
