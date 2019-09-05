@@ -1,6 +1,13 @@
 #=================================
 #  BASH GIT PROMPT CONFIGURATION
 #=================================
+
+# INSTALL bash_git_prompt:
+# 1. cd ~
+# 2. git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
+
+# SETUP:
+
 GIT_PROMPT_ONLY_IN_REPO=1                           # Use git prompt only in file paths that are repositories
 
 # GIT_PROMPT_FETCH_REMOTE_STATUS=0                  # uncomment to avoid fetching remote status

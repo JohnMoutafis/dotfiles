@@ -7,3 +7,4 @@ nnoremap <Space>vs :source ~/.ideavimrc<CR>
 "   Plugins
 "=============
 set surround
+set clipboard+=ideaputset clipboard+=ideaput
