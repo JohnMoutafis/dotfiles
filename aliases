@@ -37,9 +37,6 @@ alias wget='wget -c'
 alias untar='tar -zxvf '
 alias serve='python -m SimpleHTTPServer 8000'
 
-alias redis-server='~/redis-stable/src/redis-server'
-alias redis-cli='~/redis-stable/src/redis-cli'
-
 alias ntua_vpn='sudo openvpn --config Documents/GIS_Master/ntua_vpn/ntua.ovpn --auth-user-pass Documents/GIS_Master/ntua_vpn/ntua_auth.txt'
 
 export NVM_DIR="$HOME/.nvm"

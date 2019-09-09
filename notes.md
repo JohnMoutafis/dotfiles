@@ -22,6 +22,20 @@
       - Switch to the database: `\connect database_name`
       - Create PostGIS extension: `CREATE EXTENSION postgis;`
 
+# REDIS Notes:
+
+- Install redis-tools (on Ubuntu and Ubuntu like distros):
+
+      $ install redis-tools
+
+- Dockerized Redis:
+
+      $ docker run \
+            --name redis_container \
+            -e ALLOW_IP_RANGE=0.0.0.0/0 -p 6379:6379 \
+            -d redis:4-alpine
+
+    
 # Linux Mint Notes:
 
 ## Start Up Commands:
