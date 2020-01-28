@@ -44,3 +44,13 @@
  * WiFi power management: 
     * Check if it is on: `iwconfig`
     * Stop Power Management: `sudo /sbin/iwconfig wlp6s0 power off`
+
+## QGIS Installation
+
+    $ sudo vim /etc/apt/sources.list
+      # add the following lines at the end of the file:
+        deb https://qgis.org/ubuntu bionic main
+        deb-src https://qgis.org/ubuntu bionic main
+        
+    $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 51F523511C7028C3
+    $ update && install qgis python-qgis qgis-plugin-grass
