@@ -26,15 +26,14 @@
 - shell:
   - [git submodule update --init --recursive, Updating Submodules...]
   - [sudo apt update, Updating existing packages...]
-  - [sudo apt install -y libgdal-dev, Installing libgdal-dev]
+  - [sudo apt install -y vim build-essential, Installing vim and build-essentials...]
+  - [sudo apt install -y libgdal-dev, Installing libgdal-dev...]
   - [sudo apt install -y python-dev python3-dev, Installing python-dev...]
   - [sudo apt install -y python-pip python3-pip -y, Installing pip...]
   - [sudo apt install -y r-base, Installing R...]
   - [
-      sudo pip install virtualenv virtualenvwrapper &&
       sudo pip3 install virtualenv virtualenvwrapper,
       Installing virtualenv and virtualenvwrapper...
     ]
-  - [sudo pip install pipenv && sudo pip3 install pipenv, Installing pipenv...]
   - [sudo pip install jedi && sudo pip3 install jedi, Installing jedi...]
   - [sh ~/.dotfiles/gestures/enable_gestures.sh, Enabling touchpad gestures...]
