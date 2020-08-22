@@ -4,18 +4,17 @@
 # Override virtual_prompt_info of virtualenv zsh plugin
 function venv_info() {
   [[ -n ${VIRTUAL_ENV} ]] || return
-  echo "(%F{26}${VIRTUAL_ENV:t}%f)"
+  echo "(%F{4}${VIRTUAL_ENV:t}%f)"
 }
 
 
 function last_command_status() {
   local last_status=$?
   if [ $last_status -ne 0 ]; then
-    last_status="%F{9}✘%f"
+    echo "%F{9}✘%f"
   else
-    last_status="%F{10}✔%f"
+    echo "%F{10}✔%f"
   fi
-  echo "$last_status"
 }
 
 #======================

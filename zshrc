@@ -111,7 +111,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 ZSH_THEME_GIT_PROMPT_PREFIX="["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]"
-ZSH_THEME_GIT_PROMPT_SEPARATOR=" | "
+ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}%{●%G%}"
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✖%G%}"
@@ -124,11 +124,12 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}"
 function zsh_prompt() {
   local last_status="$(last_command_status)"
   local venv="$(venv_info)"
-  local username="%B%F{2}%n%f%b"
-  local sep="%F{226}in%f"
-  local location_git_and_end="%B%F{4}%~%f%b $(git_super_status) %B%F{4}$%f%b "
+  local time_24f="%F{244}%*%f"
+  local git_status="$(git_super_status)"
+  local curr_path="%F{10}%~%f"
+  if [ "$git_status" != "" ]; then curr_path="%F{36}%1~%f" fi
 
-  echo "$venv $last_status $username $sep $location_git_and_end" | tr -s ' '
+  echo "$venv $last_status $time_24f $curr_path $git_status %F{12}$%f " | tr -s ' '
 }
 
 precmd() { PROMPT="$(zsh_prompt)" }
