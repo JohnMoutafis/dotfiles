@@ -1,9 +1,3 @@
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
 HISTCONTROL=ignoreboth
 shopt -s histappend
 HISTSIZE=1000
@@ -62,6 +56,13 @@ if [ -x /usr/bin/mint-fortune ]; then
 fi
 
 #============================
+#    Python Poetry Setup
+#============================
+
+export PATH="$HOME/.poetry/bin:${PATH}"
+export POETRY_VIRTUALENVS_PATH=$HOME/.virtualenvs
+
+#============================
 #  VirtualEnv Wrapper Setup
 #============================
 
@@ -82,4 +83,5 @@ source ~/.bash-git-prompt-config
 source ~/.bash-git-prompt/gitprompt.sh
 
 source ~/.aliases
+source ~/.functions
 sunglasses
