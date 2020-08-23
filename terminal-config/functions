@@ -1,0 +1,39 @@
+#======================
+#       UTILITY
+#======================
+# Override virtual_prompt_info of virtualenv zsh plugin
+function venv_info() {
+  [[ -n ${VIRTUAL_ENV} ]] || return
+  echo "(%F{4}${VIRTUAL_ENV:t}%f) "
+}
+
+# Which shell is in use.
+function which_shell() {
+  if [ "$BASH_VERSION" != "" ]; then
+    echo "bash"
+  elif [ "$ZSH_VERSION" != "" ]; then
+    echo "zsh"
+  else
+    echo "wtf is this shell???"
+  fi
+}
+
+function last_command_status() {
+  local last_status=$?
+  if [ $last_status -ne 0 ]; then
+    echo "%F{9}✘%f"
+  else
+    echo "%F{10}✔%f"
+  fi
+}
+
+
+
+#======================
+#        FUNNY
+#======================
+function sunglasses() {
+  echo -en " ( •_•)     \r"; sleep .25;
+  echo -en " ( •_•)>⌐■-■\r"; sleep .25;
+  echo     " (⌐■_■) seems like a $(which_shell) job...";
+}

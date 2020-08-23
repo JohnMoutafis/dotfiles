@@ -36,6 +36,7 @@ alias local_ip='hostname -I'
 alias wget='wget -c'
 alias untar='tar -zxvf '
 alias serve='python -m SimpleHTTPServer 8000'
+eval "$(thefuck --alias)"
 
 alias ntua_vpn='sudo openvpn --config Documents/GIS_Master/ntua_vpn/ntua.ovpn --auth-user-pass Documents/GIS_Master/ntua_vpn/ntua_auth.txt'
 
@@ -53,12 +54,3 @@ function snap-cleanup-function() {
     echo "done";
 }
 alias snap-cleanup='bash -c "$(declare -f snap-cleanup-function); snap-cleanup-function"'
-
-#======================
-#        FUNNY
-#======================
-function sunglasses() {
-  echo -en " ( •_•)     \r"; sleep .25;
-  echo -en " ( •_•)>⌐■-■\r"; sleep .25;
-  echo     " (⌐■_■)       ";
-}
