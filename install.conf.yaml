@@ -28,13 +28,11 @@
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.ideavimrc: ideavimrc
-    ~/.aliases: aliases
-    ~/.functions: functions
-    ~/.bash-git-prompt: bash-git-prompt
-    ~/.bash-git-prompt-config: bash-git-prompt-config
-    ~/.bashrc: bashrc
-    ~/.zshrc: zshrc
     ~/.eslintrc: eslintrc
+    ~/.terminal-config: terminal-config
+    ~/.bash-git-prompt: bash-git-prompt
+    ~/.bashrc: terminal-config/bashrc
+    ~/.zshrc: terminal-config/zshrc
     ~/.config/libinput-gestures.conf: gestures/libinput-gestures.conf
 
 - shell:

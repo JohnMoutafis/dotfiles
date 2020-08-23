@@ -4,7 +4,7 @@
 # Override virtual_prompt_info of virtualenv zsh plugin
 function venv_info() {
   [[ -n ${VIRTUAL_ENV} ]] || return
-  echo "(%F{4}${VIRTUAL_ENV:t}%f)"
+  echo "(%F{4}${VIRTUAL_ENV:t}%f) "
 }
 
 

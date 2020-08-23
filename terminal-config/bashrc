@@ -79,9 +79,9 @@ else
 fi
 
 # End of git bash configuration, always put this line at the end of config
-source ~/.bash-git-prompt-config
+source ~/.terminal-config/bash-git-prompt-config
 source ~/.bash-git-prompt/gitprompt.sh
 
-source ~/.aliases
-source ~/.functions
+source ~/.terminal-config/aliases
+source ~/.terminal-config/functions
 sunglasses
