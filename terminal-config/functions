@@ -7,6 +7,16 @@ function venv_info() {
   echo "(%F{4}${VIRTUAL_ENV:t}%f) "
 }
 
+# Which shell is in use.
+function which_shell() {
+  if [ "$BASH_VERSION" != "" ]; then
+    echo "bash"
+  elif [ "$ZSH_VERSION" != "" ]; then
+    echo "zsh"
+  else
+    echo "wtf is this shell???"
+  fi
+}
 
 function last_command_status() {
   local last_status=$?
@@ -17,11 +27,13 @@ function last_command_status() {
   fi
 }
 
+
+
 #======================
 #        FUNNY
 #======================
 function sunglasses() {
   echo -en " ( •_•)     \r"; sleep .25;
   echo -en " ( •_•)>⌐■-■\r"; sleep .25;
-  echo     " (⌐■_■)       ";
+  echo     " (⌐■_■) seems like a $(which_shell) job...";
 }

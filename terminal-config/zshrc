@@ -62,7 +62,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git poetry thefuck virtualenvwrapper)
+plugins=(git thefuck poetry pip virtualenvwrapper django docker docker-compose redis-cli npm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,11 +116,10 @@ function zsh_prompt() {
   local venv="$(venv_info)"
   local time_24f="%F{244}%*%f"
   local git_status="$(gitprompt)"
-  local curr_path="%F{10}%3~%f"
-  if [ "$git_status" != "" ]; then curr_path="%F{36}%1~%f" fi
+  local curr_path="%B%F{10}%(5~|%-1~/…/%3~|%4~)%f%b"
+  if [ "$git_status" != "" ]; then curr_path="%F{6}%1~%f" fi
 
   echo "$venv$last_status $time_24f $curr_path $git_status %F{12}$%f " | tr -s ' '
 }
 
 precmd() { PROMPT="$(zsh_prompt)" }
-RPROMPT=''

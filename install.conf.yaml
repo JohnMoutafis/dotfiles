@@ -19,7 +19,8 @@
   - [
       sh -c "$(curl -fsSL https&#58;//raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)",
       Installing oh-my-zsh...
-  ]
+    ]
+  - [chsh -s /bin/zsh, Setting ZSH as the default terminal]
 
 - link: 
     ~/.gitignore_global: git/gitignore_global

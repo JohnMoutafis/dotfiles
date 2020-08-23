@@ -160,7 +160,6 @@ function _zsh_git_prompt_git_status() {
                     print BRANCH;
                     gsub("%", "%%", head);
                     print head;
-                    print " ";
                 }
                 print RC;
                 if (upstream != "") {
@@ -174,6 +173,7 @@ function _zsh_git_prompt_git_status() {
                     }
                 }
                 print RC;
+                if (behind < 0 || ahead > 0) {print " ";}
                 if (behind < 0) {
                     print BEHIND;
                     printf "%d", behind * -1;
