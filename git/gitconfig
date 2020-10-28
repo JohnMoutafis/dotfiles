@@ -1,7 +1,6 @@
 [user]
-    name = JohnMoutafis
+	name = jgmoutafis
     useConfigOnly = true
-
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
