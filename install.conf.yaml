@@ -17,10 +17,11 @@
   - [sudo apt install -y r-base, Installing R...]
   - [sudo apt install -y zsh, Installing zsh...]
   - [
-      sh -c "$(curl -fsSL https&#58;//raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)",
+      sh -c \
+      "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)",
       Installing oh-my-zsh...
     ]
-  - [chsh -s /bin/zsh, Setting ZSH as the default terminal]
+  - [sudo chsh -s /bin/zsh, Setting ZSH as the default terminal]
 
 - link: 
     ~/.gitignore_global: git/gitignore_global
@@ -41,10 +42,18 @@
       sudo pip3 install --user virtualenv virtualenvwrapper,
       Installing virtualenv and virtualenvwrapper...
     ]
-  - [sudo pip3 install --user poetry, Installing Poetry...]
   - [
-      mkdir $ZSH/plugins/poetry && poetry completions zsh > $ZSH/plugins/poetry/_poetry,
+      curl -sSL \
+        https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -,
+      Installing Poetry...
+    ]
+  - [
+      sudo mkdir ~/.oh-my-zsh/plugins/poetry && poetry completions zsh > \
+        ~/.oh-my-zsh/plugins/poetry/_poetry,
       Configuring zsh poetry plugin...
     ]
+  - [vim +PlugUpgrade +qall, Upgrading vim-plug...]
+  - [vim +PlugInstall +qall, Installing vim plugins...]
+  - [vim +PlugUpdate +qall, Updating vim plugins...]
   - [sudo pip3 install --user jedi, Installing jedi...]
   - [sh ~/.dotfiles/gestures/enable_gestures.sh, Enabling touchpad gestures...]

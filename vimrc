@@ -1,5 +1,21 @@
 set nocompatible
 
+"========================
+" Setup vim-plug plugins
+"========================
+call plug#begin('~/.vim/plugged')
+
+" Use only single quotes
+Plug 'dense-analysis/ale'
+Plug 'jiangmiao/auto-pairs'
+Plug 'maralla/completor.vim'
+Plug 'dikiaap/minimalist'
+Plug 'powerline/powerline'
+Plug 'tpope/vim-surround'
+Plug 'jmcantrell/vim-virtualenv'
+
+call plug#end()
+
 "===================
 "  General Options
 "===================
