@@ -22,6 +22,10 @@
       Installing oh-my-zsh...
     ]
   - [sudo chsh -s /bin/zsh, Setting ZSH as the default terminal]
+  - [
+      git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1,
+      Clone bash-git-prompt...
+    ]
 
 - link: 
     ~/.gitignore_global: git/gitignore_global
@@ -32,7 +36,6 @@
     ~/.ideavimrc: ideavimrc
     ~/.eslintrc: eslintrc
     ~/.terminal-config: terminal-config
-    ~/.bash-git-prompt: bash-git-prompt
     ~/.bashrc: terminal-config/bashrc
     ~/.zshrc: terminal-config/zshrc
     ~/.config/libinput-gestures.conf: gestures/libinput-gestures.conf
