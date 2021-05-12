@@ -9,6 +9,7 @@
   title_transmit_bg_color = "#6d9137"
   title_use_system_font = False
 [keybindings]
+  split_vert = <Primary><Shift>e
 [layouts]
   [[default]]
     [[[child1]]]

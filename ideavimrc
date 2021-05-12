@@ -8,3 +8,6 @@ nnoremap <Space>vs :source ~/.ideavimrc<CR>
 "=============
 set surround
 set clipboard+=ideaputset clipboard+=ideaput
+
+set highlightedyank
+let g:highlightedyank_highlight_duration = "1000"

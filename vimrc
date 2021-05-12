@@ -11,8 +11,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'maralla/completor.vim'
 Plug 'dikiaap/minimalist'
 Plug 'powerline/powerline'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
@@ -81,3 +83,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 hi pythonSelf  ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold
+
+" Highlight Yank Duration
+let g:highlightedyank_highlight_duration = 1000
+
