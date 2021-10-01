@@ -108,6 +108,7 @@ source ~/.terminal-config/functions
 source ~/.terminal-config/woefe-git-prompt-config
 source ~/.terminal-config/woefe-git-prompt.zsh
 export PATH=/opt/firefox/firefox:$PATH
+
 sunglasses
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -124,3 +125,6 @@ function zsh_prompt() {
 }
 
 precmd() { PROMPT="$(zsh_prompt)" }
+
+# Time command format.
+TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
