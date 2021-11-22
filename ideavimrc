@@ -1,13 +1,31 @@
-source ~/.vimrc
+set ignorecase
+set smartcase
+set scrolloff=3 " 3 lines above/below cursor when scrolling
 
 " Reload .ideavimrc
 nnoremap <Space>vs :source ~/.ideavimrc<CR>
+
+" Copy to system clipboard as well
+set clipboard+=unnamed
+" set clipboard+=ideaputset clipboard+=ideaput
+
+" Use Idea to join lines smartly
+set ideajoin
+
+" Multiple cursors support
+set multiple-cursors
+
+"===============
+"  Keybindings
+"===============
+" These create newlines like o and O but stay in normal mode
+nmap zj o<Esc>k
+nmap zk O<Esc>j
 
 "=============
 "   Plugins
 "=============
 set surround
-set clipboard+=ideaputset clipboard+=ideaput
-
 set highlightedyank
 let g:highlightedyank_highlight_duration = "1000"
+set exchange
