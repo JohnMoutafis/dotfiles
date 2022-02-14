@@ -15,6 +15,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'machakann/vim-highlightedyank'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 call plug#end()
 
