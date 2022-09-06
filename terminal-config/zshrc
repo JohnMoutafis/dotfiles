@@ -62,7 +62,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git thefuck poetry pip virtualenvwrapper docker docker-compose redis-cli npm kubectl)
+plugins=(git thefuck poetry pdm pip virtualenvwrapper docker docker-compose redis-cli npm kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,6 +100,12 @@ export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 
+if [ -n "$PYTHONPATH" ]; then
+    export PYTHONPATH="$HOME/.local/share/pdm/venv/lib/python3.8/site-packages/pdm/pep582":$PYTHONPATH
+else
+    export PYTHONPATH="$HOME/.local/share/pdm/venv/lib/python3.8/site-packages/pdm/pep582"
+fi
+
 if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
     source /usr/local/bin/virtualenvwrapper.sh
 else
@@ -131,3 +137,5 @@ precmd() { PROMPT="$(zsh_prompt)" }
 
 # Time command format.
 TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
+export PATH="$HOME/local_libs/pyston-portable_2.3.2/bin:$PATH"
+

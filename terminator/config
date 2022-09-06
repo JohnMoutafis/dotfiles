@@ -15,7 +15,7 @@
     background_color = "#2f2f2f"
     background_darkness = 0.95
     cursor_color = "#aaaaaa"
-    scrollback_lines = 1000
+    scrollback_lines = 10000
 [layouts]
   [[default]]
     [[[child1]]]
