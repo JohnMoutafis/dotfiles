@@ -59,7 +59,6 @@ fi
 #    Python Poetry Setup
 #============================
 
-export PATH="$HOME/.poetry/bin:${PATH}"
 export POETRY_VIRTUALENVS_PATH=$HOME/.virtualenvs
 
 #============================
@@ -85,3 +84,6 @@ source ~/.bash-git-prompt/gitprompt.sh
 source ~/.terminal-config/aliases
 source ~/.terminal-config/functions
 sunglasses
+
+source /home/jgmoutafis/.bash_completions/python -m cli.cli.sh
+
