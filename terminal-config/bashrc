@@ -87,3 +87,4 @@ sunglasses
 
 source /home/jgmoutafis/.bash_completions/python -m cli.cli.sh
 
+. "$HOME/.cargo/env"
