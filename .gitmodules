@@ -1,3 +1,0 @@
-[submodule "gestures/libinput-gestures"]
-	path = gestures/libinput-gestures
-	url = https://github.com/bulletmark/libinput-gestures.git

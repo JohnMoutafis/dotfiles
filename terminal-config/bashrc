@@ -1,3 +1,5 @@
+#!/bin/bash
+
 HISTCONTROL=ignoreboth
 shopt -s histappend
 HISTSIZE=1000
@@ -55,27 +57,11 @@ if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
 fi
 
-#============================
-#    Python Poetry Setup
-#============================
-
-export POETRY_VIRTUALENVS_PATH=$HOME/.virtualenvs
-
-#============================
-#  VirtualEnv Wrapper Setup
-#============================
-
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
+# Python Virtual Env setup
+export PY_VENV=$HOME/.virtualenvs
+export PIP_VIRTUALENV_BASE=$PY_VENV
 export PIP_RESPECT_VIRTUALENV=true
-
-if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-else
-    echo "WARNING: Can't find virtualenvwrapper.sh"
-fi
+export POETRY_VIRTUALENVS_PATH=$HOME/.virtualenvs
 
 # End of git bash configuration, always put this line at the end of config
 source ~/.terminal-config/bash-git-prompt-config

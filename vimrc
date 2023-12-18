@@ -13,7 +13,6 @@ Plug 'dikiaap/minimalist'
 Plug 'powerline/powerline'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
-Plug 'jmcantrell/vim-virtualenv'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
@@ -73,9 +72,6 @@ nnoremap <C-H> <C-W><C-H>
 "===============
 " Plugin Config
 "===============
-
-" Python virtualenv folder
-let g:virtualenv_directory = '~/.virtualenvs'
 
 " completor
 let g:completor_python_binary = "/usr/bin/python"

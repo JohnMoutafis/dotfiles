@@ -1,12 +1,8 @@
+#!/bin/bash
+
 #======================
 #       UTILITY
 #======================
-# Override virtual_prompt_info of virtualenv zsh plugin
-function venv_info() {
-  [[ -n ${VIRTUAL_ENV} ]] || return
-  echo "(%F{4}${VIRTUAL_ENV:t}%f) "
-}
-
 # Which shell is in use.
 function which_shell() {
   if [ "$BASH_VERSION" != "" ]; then
@@ -30,6 +26,38 @@ function last_command_status() {
 # Determine Connection Download/Upload Speed
 function speed_test() {
   curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -
+}
+
+#======================
+#    PYTHON UTILITY
+#======================
+# Override virtual_prompt_info of virtualenv zsh plugin
+function venv_info() {
+  [[ -n ${VIRTUAL_ENV} ]] || return
+  echo "(%F{4}${VIRTUAL_ENV:t}%f) "
+}
+
+# Workon venv
+function venv() {
+  venv_path=$1
+  if [[ ! -d "$venv_path" ]]; then
+    venv_path=$PY_VENV/$venv_path
+  fi
+  echo "Activating venv ${venv_path}..."
+  source ${venv_path}/bin/activate
+}
+
+# Remove Python Venv
+function venvrm() {
+  venv_path=$1
+  if [[ ! -d "$venv_path" ]]; then
+    venv_path=$PY_VENV/$venv_path
+  fi
+  echo "Removing venv ${venv_path}..."
+  source ${venv_path}/bin/activate
+  pip uninstall -y -r <(pip freeze)
+  deactivate
+  sudo rm -rf "$venv_path"
 }
 
 #======================

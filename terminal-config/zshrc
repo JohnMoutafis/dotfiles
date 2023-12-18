@@ -62,7 +62,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git thefuck poetry pdm pip virtualenvwrapper docker docker-compose redis-cli npm kubectl)
+plugins=(git thefuck poetry pdm pip docker docker-compose redis-cli npm kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,33 +94,19 @@ source $ZSH/oh-my-zsh.sh
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
+# Python Virtual Env setup
+export PY_VENV=$HOME/.virtualenvs
+export PIP_VIRTUALENV_BASE=$PY_VENV
 export PIP_RESPECT_VIRTUALENV=true
+export POETRY_VIRTUALENVS_PATH=$HOME/.virtualenvs
 
-if [ -n "$PYTHONPATH" ]; then
-    export PYTHONPATH="$HOME/.local/share/pdm/venv/lib/python3.8/site-packages/pdm/pep582":$PYTHONPATH
-else
-    export PYTHONPATH="$HOME/.local/share/pdm/venv/lib/python3.8/site-packages/pdm/pep582"
-fi
-
-if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-else
-    echo "WARNING: Can't find virtualenvwrapper.sh"
-fi
-
-source ~/.terminal-config/aliases
-source ~/.terminal-config/functions
-source ~/.terminal-config/woefe-git-prompt-config
-source ~/.terminal-config/woefe-git-prompt.zsh
+source $HOME/.terminal-config/aliases
+source $HOME/.terminal-config/functions
+source $HOME/.terminal-config/woefe-git-prompt-config
+source $HOME/.terminal-config/woefe-git-prompt.zsh
 export PATH=/opt/firefox/firefox:$PATH
 
 sunglasses
-
-export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 function zsh_prompt() {
   local last_status="$(last_command_status)"
@@ -139,3 +125,8 @@ precmd() { PROMPT="$(zsh_prompt)" }
 TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
 export PATH="$HOME/local_libs/pyston-portable_2.3.2/bin:$PATH"
 
+alias kn='kubectl -n bonsai'
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

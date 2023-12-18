@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #======================
 #       SYSTEM
 #======================
@@ -17,7 +19,7 @@ if [ -x /usr/bin/dircolors ]; then
 
     alias l='ls -CF --color=auto --group-directories-first'
     alias la='ls -A --color=auto --group-directories-first'
-    alias ll='ls -alF --color=auto --group-directories-first'
+    alias ll='ls -alhF --color=auto --group-directories-first'
     alias ls='ls --color=auto --group-directories-first'
     alias dir='dir --color=auto --group-directories-first'
     alias vdir='vdir --color=auto --group-directories-first'
@@ -26,6 +28,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+#======================
+#       DOCKER 
+#======================
+# alias docker-compose="docker compose"
 
 #======================
 #       UTILITY

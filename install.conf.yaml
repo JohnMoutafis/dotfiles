@@ -3,32 +3,36 @@
       create: true
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
-- shell: 
-  - [mkdir -p ~/.config, "Creating config folder"]
-  - [mkdir -p ~/Programs, "Creating Programs folder"]
-  - [git submodule update --init --recursive, Updating Submodules...]
-  - [sudo apt update, Updating existing packages...]
-  - [sudo apt install ranger, Installing ranger...]
-  - [sudo apt install -y vim build-essential, Installing vim and build-essentials...]
-  - [sudo apt install -y libgdal-dev, Installing libgdal-dev...]
-  - [sudo apt install -y python-dev python3-dev, Installing python-dev...]
-  - [sudo apt install -y python-pip python3-pip -y, Installing pip...]
-  - [sudo apt install -y r-base, Installing R...]
-  - [sudo apt install -y zsh, Installing zsh...]
-  - [
-      sh -c \
-      "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)",
-      Installing oh-my-zsh...
-    ]
-  - [sudo chsh -s /bin/zsh, Setting ZSH as the default terminal]
-  - [
-      git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1,
-      Clone bash-git-prompt...
-    ]
+- shell:
+    - [mkdir -p ~/.config, "Creating config folder"]
+    - [mkdir -p ~/.virtualenvs, "Creating virtualenvs folder"]
+    - [mkdir -p ~/Programs, "Creating Programs folder"]
+    # - [git submodule update --init --recursive, Updating Submodules...]
+    - [sudo apt update, Updating existing packages...]
+    - [sudo apt install terminator, Installing terminator...]
+    - [sudo apt install ranger, Installing ranger...]
+    - [
+        sudo apt install -y vim gcc build-essential,
+        Installing vim gcc build-essentials...,
+      ]
+    - [sudo apt install -y libgdal-dev, Installing libgdal-dev...]
+    - [sudo apt install -y python-dev, Installing python-dev...]
+    - [sudo apt install -y r-base, Installing R...]
+    - [sudo apt install -y zsh, Installing zsh...]
+    - [
+        sh -c \
+        "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)",
+        Installing oh-my-zsh...,
+      ]
+    - [sudo chsh -s /bin/zsh, Setting ZSH as the default terminal]
+    - [
+        git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1,
+        Clone bash-git-prompt...,
+      ]
 
-- link: 
+- link:
     ~/.gitignore_global: git/gitignore_global
     ~/.gitconfig: git/gitconfig
     ~/.config/terminator: terminator
@@ -39,25 +43,19 @@
     ~/.terminal-config: terminal-config
     ~/.bashrc: terminal-config/bashrc
     ~/.zshrc: terminal-config/zshrc
-    ~/.config/libinput-gestures.conf: gestures/libinput-gestures.conf
 
 - shell:
-  - [
-      sudo pip3 install --user virtualenv virtualenvwrapper,
-      Installing virtualenv and virtualenvwrapper...
-    ]
-#  - [
-#      curl -sSL \
-#        https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -,
-#      Installing Poetry...
-#    ]
-#  - [
-#      sudo mkdir ~/.oh-my-zsh/plugins/poetry && poetry completions zsh > \
-#        ~/.oh-my-zsh/plugins/poetry/_poetry,
-#      Configuring zsh poetry plugin...
-#    ]
-  - [vim +PlugUpgrade +qall, Upgrading vim-plug...]
-  - [vim +PlugInstall +qall, Installing vim plugins...]
-  - [vim +PlugUpdate +qall, Updating vim plugins...]
-  - [sudo pip3 install --user jedi, Installing jedi...]
-  - [sh ~/.dotfiles/gestures/enable_gestures.sh, Enabling touchpad gestures...]
+    #  - [
+    #      curl -sSL \
+    #        https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -,
+    #      Installing Poetry...
+    #    ]
+    #  - [
+    #      sudo mkdir ~/.oh-my-zsh/plugins/poetry && poetry completions zsh > \
+    #        ~/.oh-my-zsh/plugins/poetry/_poetry,
+    #      Configuring zsh poetry plugin...
+    #    ]
+    - [vim +PlugUpgrade +qall, Upgrading vim-plug...]
+    - [vim +PlugInstall +qall, Installing vim plugins...]
+    - [vim +PlugUpdate +qall, Updating vim plugins...]
+    - [sudo pip3 install --user jedi, Installing jedi...]
