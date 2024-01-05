@@ -18,7 +18,8 @@
         Installing vim gcc build-essentials...,
       ]
     - [sudo apt install -y libgdal-dev, Installing libgdal-dev...]
-    - [sudo apt install -y python-dev, Installing python-dev...]
+    - [curl https://pyenv.run | bash, Installing pyenv...]
+    - [sudo apt install -y python3-dev, Installing python3-dev...]
     - [sudo apt install -y r-base, Installing R...]
     - [sudo apt install -y zsh, Installing zsh...]
     - [

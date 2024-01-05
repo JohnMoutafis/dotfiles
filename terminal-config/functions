@@ -25,7 +25,7 @@ function last_command_status() {
 
 # Determine Connection Download/Upload Speed
 function speed_test() {
-  curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -
+  curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
 }
 
 #======================

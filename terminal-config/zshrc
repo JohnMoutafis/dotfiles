@@ -123,10 +123,8 @@ precmd() { PROMPT="$(zsh_prompt)" }
 
 # Time command format.
 TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
-export PATH="$HOME/local_libs/pyston-portable_2.3.2/bin:$PATH"
-
-alias kn='kubectl -n bonsai'
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+fpath=(/home/jgmoutafis/.oh-my-zsh/completions /home/jgmoutafis/.oh-my-zsh/plugins/kubectl /home/jgmoutafis/.oh-my-zsh/plugins/npm /home/jgmoutafis/.oh-my-zsh/plugins/redis-cli /home/jgmoutafis/.oh-my-zsh/plugins/docker-compose /home/jgmoutafis/.oh-my-zsh/plugins/docker /home/jgmoutafis/.oh-my-zsh/plugins/virtualenvwrapper /home/jgmoutafis/.oh-my-zsh/plugins/pip /home/jgmoutafis/.oh-my-zsh/custom/plugins/pdm /home/jgmoutafis/.oh-my-zsh/plugins/poetry /home/jgmoutafis/.oh-my-zsh/plugins/thefuck /home/jgmoutafis/.oh-my-zsh/plugins/git /home/jgmoutafis/.oh-my-zsh/functions /home/jgmoutafis/.oh-my-zsh/completions /home/jgmoutafis/.oh-my-zsh/cache/completions /usr/local/share/zsh/site-functions /usr/share/zsh/vendor-functions /usr/share/zsh/vendor-completions /usr/share/zsh/functions/Calendar /usr/share/zsh/functions/Chpwd /usr/share/zsh/functions/Completion /usr/share/zsh/functions/Completion/AIX /usr/share/zsh/functions/Completion/BSD /usr/share/zsh/functions/Completion/Base /usr/share/zsh/functions/Completion/Cygwin /usr/share/zsh/functions/Completion/Darwin /usr/share/zsh/functions/Completion/Debian /usr/share/zsh/functions/Completion/Linux /usr/share/zsh/functions/Completion/Mandriva /usr/share/zsh/functions/Completion/Redhat /usr/share/zsh/functions/Completion/Solaris /usr/share/zsh/functions/Completion/Unix /usr/share/zsh/functions/Completion/X /usr/share/zsh/functions/Completion/Zsh /usr/share/zsh/functions/Completion/openSUSE /usr/share/zsh/functions/Exceptions /usr/share/zsh/functions/MIME /usr/share/zsh/functions/Math /usr/share/zsh/functions/Misc /usr/share/zsh/functions/Newuser /usr/share/zsh/functions/Prompts /usr/share/zsh/functions/TCP /usr/share/zsh/functions/VCS_Info /usr/share/zsh/functions/VCS_Info/Backends /usr/share/zsh/functions/Zftp /usr/share/zsh/functions/Zle)
