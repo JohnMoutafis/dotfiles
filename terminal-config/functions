@@ -37,6 +37,38 @@ function venv_info() {
   echo "(%F{4}${VIRTUAL_ENV:t}%f) "
 }
 
+# Create pyenv venv
+function mkvenv_pyenv(){
+  while getopts 'n:v:' opt; do
+    case $opt in
+      n) name=$OPTARG;;
+      v) version=$OPTARG;;
+      \?) echo -e "\e[31mUnknown option: -$OPTARG\e[0m" >&2; return 1;;
+    esac
+  done
+
+  [ -z "$name" ] && echo -e "\e[31mNew venv needs a name!\e[0m" && return 1;
+  echo "Creating VirtualEnv '$name'..."
+
+  if [ -z "$version" ]; then
+    echo -e "\033[33mUsing global Python version: $(python3 --version)\n\033[0m"
+    pyenv virtualenv "$(python3 --version)" "$name"
+  else
+    pyenv virtualenv "$version" "$name"
+  fi
+
+  return 0
+}
+
+# Activate pyenv venv
+function workon_pyenv(){
+  pyenv activate "$1"
+}
+# Deactivate pyenv venv
+function deactivate_pyenv(){
+  pyenv deactivate
+}
+
 # Workon venv
 function venv() {
   venv_path=$1

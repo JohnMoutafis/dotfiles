@@ -67,10 +67,11 @@ export POETRY_VIRTUALENVS_PATH=$HOME/.virtualenvs
 source ~/.terminal-config/bash-git-prompt-config
 source ~/.bash-git-prompt/gitprompt.sh
 
-source ~/.terminal-config/aliases
-source ~/.terminal-config/functions
+source $HOME/.terminal-config/aliases
+source $HOME/.terminal-config/exports
+source $HOME/.terminal-config/functions
 sunglasses
 
-source /home/jgmoutafis/.bash_completions/python -m cli.cli.sh
+# source /home/jgmoutafis/.bash_completions/python -m cli.cli.sh
 
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"

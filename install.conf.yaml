@@ -11,8 +11,8 @@
     - [mkdir -p ~/Programs, "Creating Programs folder"]
     # - [git submodule update --init --recursive, Updating Submodules...]
     - [sudo apt update, Updating existing packages...]
-    - [sudo apt install terminator, Installing terminator...]
-    - [sudo apt install ranger, Installing ranger...]
+    - [sudo apt install -y terminator, Installing terminator...]
+    - [sudo apt install -y ranger, Installing ranger...]
     - [
         sudo apt install -y vim gcc build-essential,
         Installing vim gcc build-essentials...,
@@ -27,7 +27,7 @@
         "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)",
         Installing oh-my-zsh...,
       ]
-    - [sudo chsh -s /bin/zsh, Setting ZSH as the default terminal]
+    - [sudo chsh -s $(which zsh), Setting ZSH as the default terminal]
     - [
         git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1,
         Clone bash-git-prompt...,
