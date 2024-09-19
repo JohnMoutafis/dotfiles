@@ -18,7 +18,6 @@
         Installing vim gcc build-essentials...,
       ]
     - [sudo apt install -y libgdal-dev, Installing libgdal-dev...]
-    - [curl https://pyenv.run | bash, Installing pyenv...]
     - [sudo apt install -y python3-dev, Installing python3-dev...]
     - [sudo apt install -y r-base, Installing R...]
     - [sudo apt install -y zsh, Installing zsh...]
@@ -60,3 +59,7 @@
     - [vim +PlugInstall +qall, Installing vim plugins...]
     - [vim +PlugUpdate +qall, Updating vim plugins...]
     - [sudo pip3 install --user jedi, Installing jedi...]
+    - [
+        sudo pip3 install --user virtualenv virtualenvwrapper,
+        Installing virtualenv wrapper...,
+      ]

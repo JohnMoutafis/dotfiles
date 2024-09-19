@@ -57,12 +57,28 @@ HIST_STAMPS="yyyy-mm-dd"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# As suggested here: https://gist.github.com/dixneuf19/a398c08f00aac24609c3cc44c29af1f0
+PATH=$HOME/.local/bin:$PATH
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git thefuck pyenv poetry pdm pip docker docker-compose redis-cli npm kubectl)
+plugins=(
+  git 
+  thefuck 
+  pyenv 
+  poetry 
+  pdm 
+  pip 
+  virtualenvwrapper
+  docker 
+  docker-compose 
+  redis-cli 
+  npm 
+  kubectl
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,11 +110,11 @@ source $ZSH/oh-my-zsh.sh
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Python Virtual Env setup
-export PY_VENV=$HOME/.virtualenvs
-export PIP_VIRTUALENV_BASE=$PY_VENV
+# VirtualEnvWrapper
 export PIP_RESPECT_VIRTUALENV=true
-export POETRY_VIRTUALENVS_PATH=$HOME/.virtualenvs
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source ~/.local/bin/virtualenvwrapper.sh
 
 source $HOME/.terminal-config/aliases
 source $HOME/.terminal-config/exports
