@@ -30,6 +30,7 @@
         git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1,
         Clone bash-git-prompt...,
       ]
+    - [curl https://pyenv.run | bash, Install pyenv]
 
 - link:
     ~/.gitignore_global: git/gitignore_global
@@ -40,8 +41,12 @@
     ~/.ideavimrc: ideavimrc
     ~/.eslintrc: eslintrc
     ~/.terminal-config: terminal-config
-    ~/.bashrc: terminal-config/bashrc
-    ~/.zshrc: terminal-config/zshrc
+    ~/.bashrc:
+      force: true
+      path: terminal-config/bashrc
+    ~/.zshrc:
+      force: true
+      path: terminal-config/zshrc
 
 - shell:
     #  - [
