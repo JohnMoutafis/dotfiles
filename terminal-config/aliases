@@ -35,6 +35,14 @@ fi
 # alias docker-compose="docker compose"
 
 #======================
+#       PYENV
+#======================
+alias workon='pyenv activate'
+alias deactivate='source deactivate'
+alias mkvirtualenv='pyenv virtualenv'
+alias rmvirtualenv='pyenv uninstall'
+
+#======================
 #         VPN 
 #======================
 alias wireguard_on='sudo service wg-quick@tiledb-wg start'

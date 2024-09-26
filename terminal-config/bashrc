@@ -57,11 +57,10 @@ if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
 fi
 
-# Python Virtual Env setup
-export PY_VENV=$HOME/.virtualenvs
-export PIP_VIRTUALENV_BASE=$PY_VENV
-export PIP_RESPECT_VIRTUALENV=true
-export POETRY_VIRTUALENVS_PATH=$HOME/.virtualenvs
+# PyENV init
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # End of git bash configuration, always put this line at the end of config
 source ~/.terminal-config/bash-git-prompt-config

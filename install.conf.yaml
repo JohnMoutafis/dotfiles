@@ -7,7 +7,7 @@
 
 - shell:
     - [mkdir -p ~/.config, "Creating config folder"]
-    - [mkdir -p ~/.virtualenvs, "Creating virtualenvs folder"]
+    # - [mkdir -p ~/.virtualenvs, "Creating virtualenvs folder"]
     - [mkdir -p ~/Programs, "Creating Programs folder"]
     - [sudo apt update, Updating existing packages...]
     - [sudo apt install -y terminator, Installing terminator...]
@@ -17,6 +17,10 @@
         Installing vim gcc build-essentials...,
       ]
     - [sudo apt install -y libgdal-dev, Installing libgdal-dev...]
+    - [
+        sudo apt install -y libffi-dev,
+        Installing libffi-dev (for pyenv installations),
+      ]
     - [sudo apt install -y python3-dev, Installing python3-dev...]
     - [sudo apt install -y r-base, Installing R...]
     - [sudo apt install -y zsh, Installing zsh...]
@@ -62,7 +66,3 @@
     - [vim +PlugUpgrade +qall, Upgrading vim-plug...]
     - [vim +PlugUpdate +qall, Updating vim plugins...]
     - [pip install --user jedi, Installing jedi...]
-    - [
-        pip install --user virtualenv virtualenvwrapper,
-        Installing virtualenv wrapper...,
-      ]

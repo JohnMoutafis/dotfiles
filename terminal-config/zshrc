@@ -77,7 +77,6 @@ plugins=(
   poetry 
   pdm 
   pip 
-  virtualenvwrapper
   docker 
   docker-compose 
   redis-cli 
@@ -115,12 +114,7 @@ source $ZSH/oh-my-zsh.sh
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# VirtualEnvWrapper
-export PIP_RESPECT_VIRTUALENV=true
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source ~/.local/bin/virtualenvwrapper.sh
-
+# Source terminal config
 source $HOME/.terminal-config/aliases
 source $HOME/.terminal-config/exports
 source $HOME/.terminal-config/functions
