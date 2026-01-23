@@ -1,5 +1,5 @@
 # General NSystem Notes:
-- The `install.conf.yaml` config now sets the default shell to `ZSH`.<br>
+- The `setup` sets the default shell to `ZSH`.<br>
   To change back to `BASH`: `chsh -s /bin/bash`
 
 # PostgreSQL/PostGIS notes:

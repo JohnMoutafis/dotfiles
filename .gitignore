@@ -11,3 +11,9 @@
 .vim/*/*/.*.swp
 .vim/*/*/*/.*.swp
 
+# Ignore lazy vim's lock file
+nvim/.config/nvim/lazy-lock.json
+nvim/.config/nvim/lazyvim.json
+
+# Ignore terminal local-aliases
+terminal/.config/terminal/local-aliases

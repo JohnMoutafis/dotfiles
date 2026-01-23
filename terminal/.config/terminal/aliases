@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# --- Zinit & Maintenance ---
+alias zup='zinit self-update && zinit update --parallel && zinit cclear'
+alias zclean='zinit cclear && zinit delete --clean'
+
+#======================
+#       SYSTEM
+#======================
+alias su='sudo -i'
+alias sudo='sudo '
+alias root='sudo -i'
+alias reboot='sudo /sbin/reboot'
+alias shutdown='sudo /sbin/shutdown'
+
+# Only on Linux machines
+if [[ "$OSTYPE" != "darwin"* ]]; then
+  alias update='sudo apt-get update'
+  alias upgrade='sudo apt-get upgrade'
+  alias install='sudo apt-get install'
+  
+  alias dir='dir --color --group-directories-first'
+  alias vdir='vdir --color --group-directories-first'
+fi
+
+# LS aliases
+if [[ -n "${commands[eza]}" ]]; then 
+  # If using EZA (the smarter ls replacement)
+  alias eza='eza --icons --group-directories-first --git'
+  alias ls='eza'
+  alias l='ls -lh'
+  alias ll='ls -l'
+  alias la='ls -lah'
+  alias lt='ls --tree --level=2'
+  alias lt3='ls --tree --level=3'
+else
+  if [[ "$OSTYPE" == "darwin"* ]]; then  # MacOS
+    # `brew install coreutils` for gls
+    alias ls='gls --group-directories-first --color' 
+  else
+    alias ls='ls --group-directories-first --color' 
+  fi
+
+  alias ls='ls --color=auto'
+  alias l='ls -CF'
+  alias ll='ls -lah'
+  alias la='ls -A'
+  alias ll='ls -alhF'
+fi
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+#======================
+#      MiniKube 
+#======================
+alias mkctl="minikube kubectl --" 
+
+#======================
+#       PYENV
+#======================
+# alias workon='pyenv activate'
+# alias py_deactivate='source deactivate'
+# alias mkvirtualenv='pyenv virtualenv'
+# alias rmvirtualenv='pyenv uninstall'
+
+#======================
+#       UTILITY
+#======================
+alias atta
+alias debug-smtp='python -m smtpd -n -c DebuggingServer localhost:1025'
+alias my_ip='curl ipinfo.io/ip'
+alias local_ip='hostname -I'
+alias wget='wget -c'
+alias untar='tar -zxvf '
+alias serve='python -m SimpleHTTPServer 8000'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function snap-cleanup-function() {
+#  set -eu
+  snap list --all | awk '/disabled/{print $1, $3}' |
+    while read snapname revision
+    do
+      snap remove "$snapname" --revision="$revision"
+    done
+    echo "done";
+}
+alias snap-cleanup='bash -c "$(declare -f snap-cleanup-function); snap-cleanup-function"'
