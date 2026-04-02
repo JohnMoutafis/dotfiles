@@ -4,21 +4,34 @@ end
 
 return {
     {
-        -- File navigation
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        config = function()
-            require("nvim-tree").setup {}
+        -- Markdown preview
+        "OXY2DEV/markview.nvim",
+        lazy = true,
+    },
+    -- LSP Server Configuration
+    {
+        "nvim-treesitter/nvim-treesitter",
+        opts = function(_, opts)
+        vim.list_extend(opts.ensure_installed, { "nim" })
         end,
     },
     {
-        -- Markdown preview
-        "OXY2DEV/markview.nvim",
-        lazy = false,
+        "neovim/nvim-lspconfig",
+        opts = {
+            servers = {
+                nim_langserver = {
+                    settings = {
+                        nim = {
+                            nimsuggestPath = "nimsuggest",
+                            autoCheckFile = true,
+                            autoCheckProject = true,
+                            formatOnSave = true,  -- requires nph on PATH
+                            notificationVerbosity = "warning",
+                        },
+                    },
+                },
+            },
+        },
     },
     {
         "mg979/vim-visual-multi",

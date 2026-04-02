@@ -14,10 +14,6 @@ keymap.set("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Quit
-keymap.set("n", "<leader>q", "<CMD>q<CR>")
--- Save
-keymap.set({"n", "v"}, "<leader>p", '"+p', opts)
 -- Yank to system clipboard
 keymap.set({"n", "v"}, "<leader>y", '"+y', opts)
 -- Paste from system clipboard
