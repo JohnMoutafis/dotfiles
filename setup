@@ -32,7 +32,7 @@ if [ $dotfiles_only -eq 0 ]; then
   fi
 
   if ! cargo -V &> /dev/null; then
-    echo -e "${YELLOW}Rust/Cargo in needed, installing..."
+    echo -e "${YELLOW}Rust/Cargo is needed, installing...${NC}"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   else
     echo -e "[${GREEN}✔${NC}] Rust/Cargo"
@@ -56,14 +56,15 @@ if [ $dotfiles_only -eq 0 ]; then
   packages=(
     tmux
     vim
-    nvim
+    neovim
     stow
     zsh
+    git-lfs
   )
   # Setup on MacOS
   if [[ "$OSTYPE" == "darwin"* ]]; then  # MacOS
-    echo "Setting Up on Mac" 
-   
+    echo "Setting Up on Mac"
+
     # Brew and brew Packages
     echo "-------------------"
     echo "Installing Brew..."
@@ -74,46 +75,82 @@ if [ $dotfiles_only -eq 0 ]; then
       brew install "${package}"
     done
 
-    echo "- Installing Alacritty..."
-    brew install Alacritty
+    echo "- Installing fd..."
+    brew install fd
+    echo "- Installing oh-my-posh..."
+    brew install jandedobbeleer/oh-my-posh/oh-my-posh
     echo "- Installing coreutils..."
     brew install coreutils
     echo "- Installing thefuck..."
     brew install thefuck
     echo "- Installing Hack Nerd Font..."
     brew install font-hack-nerd-font
+    echo "- Installing Ghostty..."
+    brew install --cask ghostty
   else
     echo "Setting Up on Linux"
-    # Essentials and dependencies
     echo "-------------------"
     echo "Updating..."
     sudo apt update -y
     echo "Installing general dependencies..."
-    sudo apt install -y \ 
+    sudo apt install -y \
       gcc \
       build-essential \
       libgdal-dev \
       libffi-dev \
-      python3-dev \ 
+      python3-dev \
       python3-pip \
-      python3-setuptools \
-      r-base
+      python3-setuptools
 
     for package in "${packages[@]}"; do
       echo "- Installing ${YELLOW}${package}${NC}..."
       sudo apt install "${package}" -y
     done
 
+    echo "- Installing fd-find..."
+    sudo apt install fd-find -y
+    echo "- Installing oh-my-posh..."
+    curl -s https://ohmyposh.dev/install.sh | bash -s
     echo "- Installing thefuck..."
-    pip3 install thefuck --user
+    sudo apt install pipx -y
+    pipx install thefuck
     echo "- Installing Hack Nerd Font..."
-    sudo apt install fonts-hack-ttf
+    sudo apt install fonts-hack-ttf -y
+    echo "- Installing Ghostty..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
   fi
 
+  echo "- Installing Zed Editor..."
+  curl -f https://zed.dev/install.sh | sh
   echo "- Installing kanata..."
   cargo install kanata
+  echo "-------------------"
+
+  # TPM (Tmux Plugin Manager)
+  echo -e "${YELLOW}Installing TPM (Tmux Plugin Manager)...${NC}"
+  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  else
+    echo -e "[${GREEN}✔${NC}] TPM already installed"
+  fi
+
   echo "-------------------"
   echo -e "${GREEN}Setting ZSH as the default terminal${NC}"
   chsh -s "$(which zsh)"
   echo "-------------------"
 fi
+
+# Deploy dotfiles with stow
+echo "======================"
+echo -e "${YELLOW}Deploying dotfiles with stow...${NC}"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$DOTFILES_DIR"
+
+stow_packages=(git kanata nvim terminal tmux zed)
+for package in "${stow_packages[@]}"; do
+  echo "- Stowing ${YELLOW}${package}${NC}..."
+  stow -v --restow "${package}"
+done
+
+echo "======================"
+echo -e "${GREEN}Done!${NC}"
