@@ -1,0 +1,156 @@
+#!/bin/bash
+GREEN="\033[0;32m"
+YELLOW="\033[0;33m"
+NC="\033[0m"
+
+dotfiles_only=0
+
+while getopts ":d" opt; do
+  case "$opt" in
+    d) dotfiles_only=1;;
+    *) echo -e "${YELLOW}${opt} Not a valid option${NC}";;
+  esac
+done
+
+
+if [ $dotfiles_only -eq 0 ]; then
+  echo "Setting Up"
+  echo "======================"
+
+  if ! git -v &> /dev/null; then
+    echo "Missing git. How did you even got here??"
+    exit 1
+  else
+    echo -e "[${GREEN}✔${NC}] git"
+  fi
+
+  if ! curl --version &> /dev/null; then
+    echo "The setup needs curl"
+    exit 1
+  else
+    echo -e "[${GREEN}✔${NC}] curl"
+  fi
+
+  if ! cargo -V &> /dev/null; then
+    echo -e "${YELLOW}Rust/Cargo is needed, installing...${NC}"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  else
+    echo -e "[${GREEN}✔${NC}] Rust/Cargo"
+  fi
+
+
+  # Setup XDG_CONFIG_HOME
+  echo "======================"
+  echo -e "${YELLOW}Set XDG_CONFIG_HOME${NC}"
+  export XDG_CONFIG_HOME="$HOME/.config"
+  mkdir -p "$XDG_CONFIG_HOME"
+  echo "-> ${XDG_CONFIG_HOME}"
+
+  echo -e "${YELLOW}Create Dev folder${NC}"
+  export PROGRAMS="$HOME/Dev"
+  mkdir -p "${PROGRAMS}"
+  echo "-> ${PROGRAMS}"
+  echo "======================"
+  echo -e "System: ${GREEN}${OSTYPE}${NC}"
+
+  packages=(
+    tmux
+    vim
+    neovim
+    stow
+    zsh
+    git-lfs
+  )
+  # Setup on MacOS
+  if [[ "$OSTYPE" == "darwin"* ]]; then  # MacOS
+    echo "Setting Up on Mac"
+
+    # Brew and brew Packages
+    echo "-------------------"
+    echo "Installing Brew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ## Brew Packages
+    for package in "${packages[@]}"; do
+      echo "- Installing ${YELLOW}${package}${NC}..."
+      brew install "${package}"
+    done
+
+    echo "- Installing fd..."
+    brew install fd
+    echo "- Installing oh-my-posh..."
+    brew install jandedobbeleer/oh-my-posh/oh-my-posh
+    echo "- Installing coreutils..."
+    brew install coreutils
+    echo "- Installing thefuck..."
+    brew install thefuck
+    echo "- Installing Hack Nerd Font..."
+    brew install font-hack-nerd-font
+    echo "- Installing Ghostty..."
+    brew install --cask ghostty
+  else
+    echo "Setting Up on Linux"
+    echo "-------------------"
+    echo "Updating..."
+    sudo apt update -y
+    echo "Installing general dependencies..."
+    sudo apt install -y \
+      gcc \
+      build-essential \
+      libgdal-dev \
+      libffi-dev \
+      python3-dev \
+      python3-pip \
+      python3-setuptools
+
+    for package in "${packages[@]}"; do
+      echo "- Installing ${YELLOW}${package}${NC}..."
+      sudo apt install "${package}" -y
+    done
+
+    echo "- Installing fd-find..."
+    sudo apt install fd-find -y
+    echo "- Installing oh-my-posh..."
+    curl -s https://ohmyposh.dev/install.sh | bash -s
+    echo "- Installing thefuck..."
+    sudo apt install pipx -y
+    pipx install thefuck
+    echo "- Installing Hack Nerd Font..."
+    sudo apt install fonts-hack-ttf -y
+    echo "- Installing Ghostty..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+  fi
+
+  echo "- Installing Zed Editor..."
+  curl -f https://zed.dev/install.sh | sh
+  echo "- Installing kanata..."
+  cargo install kanata
+  echo "-------------------"
+
+  # TPM (Tmux Plugin Manager)
+  echo -e "${YELLOW}Installing TPM (Tmux Plugin Manager)...${NC}"
+  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  else
+    echo -e "[${GREEN}✔${NC}] TPM already installed"
+  fi
+
+  echo "-------------------"
+  echo -e "${GREEN}Setting ZSH as the default terminal${NC}"
+  chsh -s "$(which zsh)"
+  echo "-------------------"
+fi
+
+# Deploy dotfiles with stow
+echo "======================"
+echo -e "${YELLOW}Deploying dotfiles with stow...${NC}"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$DOTFILES_DIR"
+
+stow_packages=(git kanata nvim terminal tmux zed)
+for package in "${stow_packages[@]}"; do
+  echo "- Stowing ${YELLOW}${package}${NC}..."
+  stow -v --restow "${package}"
+done
+
+echo "======================"
+echo -e "${GREEN}Done!${NC}"

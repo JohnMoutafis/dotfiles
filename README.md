@@ -7,7 +7,11 @@ Without me my dotfiles are useless (not really),<br>without them, I am useless
 ### Suggested install:
 
     git clone git@github.com:JohnMoutafis/dotfiles.git .dotfiles
-    pip install dotbot
-    dotbot -c ~/.dotfiles/install.conf.yaml
-    
-Vim plugins are now managed by: [vim-plug](https://github.com/junegunn/vim-plug)
+    /bin/bash setup
+
+**Setup Options**
+
+- `-d`: Create only sim-links of the dotfiles without system setup
+
+
+*Vim plugins are now managed by: [vim-plug](https://github.com/junegunn/vim-plug)*

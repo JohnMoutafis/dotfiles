@@ -1,8 +1,8 @@
 [user]
-	name = jgmoutafis
+    name = jgmoutafis
     useConfigOnly = true
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = ~/.gitignore_global
 	autocrlf = input
 
