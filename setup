@@ -7,37 +7,35 @@ dotfiles_only=0
 
 while getopts ":d" opt; do
   case "$opt" in
-    d) dotfiles_only=1;;
-    *) echo -e "${YELLOW}${opt} Not a valid option${NC}";;
+  d) dotfiles_only=1 ;;
+  *) echo -e "${YELLOW}${opt} Not a valid option${NC}" ;;
   esac
 done
-
 
 if [ $dotfiles_only -eq 0 ]; then
   echo "Setting Up"
   echo "======================"
 
-  if ! git -v &> /dev/null; then
+  if ! git -v &>/dev/null; then
     echo "Missing git. How did you even got here??"
     exit 1
   else
     echo -e "[${GREEN}✔${NC}] git"
   fi
 
-  if ! curl --version &> /dev/null; then
+  if ! curl --version &>/dev/null; then
     echo "The setup needs curl"
     exit 1
   else
     echo -e "[${GREEN}✔${NC}] curl"
   fi
 
-  if ! cargo -V &> /dev/null; then
+  if ! cargo -V &>/dev/null; then
     echo -e "${YELLOW}Rust/Cargo is needed, installing...${NC}"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   else
     echo -e "[${GREEN}✔${NC}] Rust/Cargo"
   fi
-
 
   # Setup XDG_CONFIG_HOME
   echo "======================"
@@ -60,9 +58,10 @@ if [ $dotfiles_only -eq 0 ]; then
     stow
     zsh
     git-lfs
+    btop
   )
   # Setup on MacOS
-  if [[ "$OSTYPE" == "darwin"* ]]; then  # MacOS
+  if [[ "$OSTYPE" == "darwin"* ]]; then # MacOS
     echo "Setting Up on Mac"
 
     # Brew and brew Packages
@@ -71,7 +70,7 @@ if [ $dotfiles_only -eq 0 ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ## Brew Packages
     for package in "${packages[@]}"; do
-      echo "- Installing ${YELLOW}${package}${NC}..."
+      echo -e "- Installing ${YELLOW}${package}${NC}..."
       brew install "${package}"
     done
 
@@ -103,7 +102,7 @@ if [ $dotfiles_only -eq 0 ]; then
       python3-setuptools
 
     for package in "${packages[@]}"; do
-      echo "- Installing ${YELLOW}${package}${NC}..."
+      echo -e "- Installing ${YELLOW}${package}${NC}..."
       sudo apt install "${package}" -y
     done
 
@@ -148,8 +147,8 @@ cd "$DOTFILES_DIR"
 
 stow_packages=(git kanata nvim terminal tmux zed)
 for package in "${stow_packages[@]}"; do
-  echo "- Stowing ${YELLOW}${package}${NC}..."
-  stow -v --restow "${package}"
+  echo -e "- Stowing ${YELLOW}${package}${NC}..."
+  stow -t "$HOME" -v --restow "${package}"
 done
 
 echo "======================"

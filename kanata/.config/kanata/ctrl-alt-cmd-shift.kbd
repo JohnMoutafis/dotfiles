@@ -8,7 +8,7 @@
                                                          bspc
                               u
   caps a  s   d   f       h   j   k   l   ;
-  fn                 spc
+                     spc
 )
 
 (defvar
@@ -18,7 +18,7 @@
 
 (defalias
   ;; On MacOS fn functionality gets disabled by kanata.
-  fnl (tap-hold $tap-time $hold-time fn (layer-toggle fn))
+  ;; fnl (tap-hold $tap-time $hold-time fn (layer-toggle fn))
   
   ;; Caps Lock: Click = Esc, Hold = Left Ctrl
   escctrl (tap-hold $tap-time $hold-time esc lctl)
@@ -45,15 +45,7 @@
                                                              bspc
                                   u
   @escctrl @a @s  @d  @f      h   @j  @k  @l  @;
-  @fnl                  @sparr
-)
-
-(deflayer fn
-    brdn brup _  _  _  _  prev pp next mute vold volu 
-                                                       del
-                          _
-  _ _    _    _  _      _ _    _  _    _
-  _                 _
+                        @sparr
 )
 
 (deflayer arrows
@@ -61,5 +53,5 @@
                                                        _
                    -
   _ _ _ _ _   left down up right _
-  _         _
+            _
 )

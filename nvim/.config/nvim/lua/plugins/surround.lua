@@ -1,32 +1,22 @@
--- Default plugins are plugins that can be used in conjuction with VSCode.
+--#region
+--    Old text                    Command         New text
+-- --------------------------------------------------------------------------------
+--    surr*ound_words             ysiw)           (surround_words)
+--    surr*ound_words             ysiw(           ( surround_words )
+--    *make strings               ys$"            "make strings"
+--    [delete ar*ound me!]        ds]             delete around me!
+--    remove <b>HTML t*ags</b>    dst             remove HTML tags
+--    'change quot*es'            cs'"            "change quotes"
+--    <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
+--    delete(functi*on calls)     dsf             function calls
 return {
-  "nvim-mini/mini.surround",
-  -- keys = function(_, keys)
-  --   -- Populate the keys based on the user's options
-  --   local opts = LazyVim.opts("mini.surround")
-  --   local mappings = {
-  --     { opts.mappings.add, desc = "Add Surrounding", mode = { "n", "x" } },
-  --     { opts.mappings.delete, desc = "Delete Surrounding" },
-  --     { opts.mappings.find, desc = "Find Right Surrounding" },
-  --     { opts.mappings.find_left, desc = "Find Left Surrounding" },
-  --     { opts.mappings.highlight, desc = "Highlight Surrounding" },
-  --     { opts.mappings.replace, desc = "Replace Surrounding" },
-  --     { opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
-  --   }
-  --   mappings = vim.tbl_filter(function(m)
-  --     return m[1] and #m[1] > 0
-  --   end, mappings)
-  --   return vim.list_extend(mappings, keys)
-  -- end,
-  opts = {
-    mappings = {
-      add = "sa",     -- Add surrounding in Normal (needs 'iw') and Visual modes
-      replace = "sr", -- Replace surrounding
-      delete = "sd",  -- Delete surrounding
-      highlight = "sh", -- Highlight surrounding
-      find = "sf",      -- Find surrounding (to the right)
-      find_left = "sF", -- Find surrounding (to the left)
-      update_n_lines = "sn", -- Update `n_lines`
-    },
-  },
+    "kylechui/nvim-surround",
+    -- version = "^4.0.0", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    -- Optional: See `:h nvim-surround.configuration` and `:h nvim-surround.setup` for details
+    -- config = function()
+    --     require("nvim-surround").setup({
+    --         -- Put your configuration here
+    --     })
+    -- end
 }

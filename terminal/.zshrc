@@ -21,6 +21,9 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
+# Source the exports file early
+source $HOME/.config/terminal/exports
+
 # ---------------------------------------------------------
 #                   Load Prompt
 # ---------------------------------------------------------
@@ -130,13 +133,16 @@ zinit light zsh-users/zsh-history-substring-search
 bindkey -e
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey "\e\e" fuck-command-line
 
 # ---------------------------------------------------------
 #               Source Custom Files
 # ---------------------------------------------------------
 source $HOME/.config/terminal/aliases
-source $HOME/.config/terminal/exports
 source $HOME/.config/terminal/functions
 source $HOME/.config/terminal/local-aliases
 
 sunglasses 
+
+# opencode
+export PATH=/home/jmoutafis/.opencode/bin:$PATH

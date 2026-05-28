@@ -6,8 +6,11 @@ export EDITOR=nvim
 # EZA config
 export EZA_CONFIG_DIR=~/.config/eza
 
+# Add .local/bin in the path
+export PATH=$PATH:$HOME/.local/bin
+
 # Python Virtual Env setup
-export PY_VENV=$HOME/.virtualenvs
-export PIP_VIRTUALENV_BASE=$PY_VENV
-export PIP_RESPECT_VIRTUALENV=true
-export POETRY_VIRTUALENVS_PATH=$HOME/.virtualenvs
+# export PY_VENV=$HOME/.virtualenvs
+# export PIP_VIRTUALENV_BASE=$PY_VENV
+# export PIP_RESPECT_VIRTUALENV=true
+# export POETRY_VIRTUALENVS_PATH=$HOME/.virtualenvs

@@ -18,13 +18,13 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
   alias update='sudo apt-get update'
   alias upgrade='sudo apt-get upgrade'
   alias install='sudo apt-get install'
-  
+
   alias dir='dir --color --group-directories-first'
   alias vdir='vdir --color --group-directories-first'
 fi
 
 # LS aliases
-if [[ -n "${commands[eza]}" ]]; then 
+if [[ -n "${commands[eza]}" ]]; then
   # If using EZA (the smarter ls replacement)
   alias eza='eza --icons --group-directories-first --git'
   alias ls='eza'
@@ -33,12 +33,14 @@ if [[ -n "${commands[eza]}" ]]; then
   alias la='ls -lah'
   alias lt='ls --tree --level=2'
   alias lt3='ls --tree --level=3'
+  alias lta='la --tree --level=2'
+  alias lta3='la --tree --level=3'
 else
-  if [[ "$OSTYPE" == "darwin"* ]]; then  # MacOS
+  if [[ "$OSTYPE" == "darwin"* ]]; then # MacOS
     # `brew install coreutils` for gls
-    alias ls='gls --group-directories-first --color' 
+    alias ls='gls --group-directories-first --color'
   else
-    alias ls='ls --group-directories-first --color' 
+    alias ls='ls --group-directories-first --color'
   fi
 
   alias ls='ls --color=auto'
@@ -53,9 +55,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 #======================
-#      MiniKube 
+#      MiniKube
 #======================
-alias mkctl="minikube kubectl --" 
+alias mkctl="minikube kubectl --"
 
 #======================
 #       PYENV
@@ -75,18 +77,18 @@ alias local_ip='hostname -I'
 alias wget='wget -c'
 alias untar='tar -zxvf '
 alias serve='python -m SimpleHTTPServer 8000'
+alias vactivate='source .venv/bin/activate'
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 function snap-cleanup-function() {
-#  set -eu
+  #  set -eu
   snap list --all | awk '/disabled/{print $1, $3}' |
-    while read snapname revision
-    do
+    while read snapname revision; do
       snap remove "$snapname" --revision="$revision"
     done
-    echo "done";
+  echo "done"
 }
 alias snap-cleanup='bash -c "$(declare -f snap-cleanup-function); snap-cleanup-function"'

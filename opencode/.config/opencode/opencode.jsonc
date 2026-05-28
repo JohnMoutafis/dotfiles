@@ -1,0 +1,156 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "instructions": [
+    "AGENTS.md",
+    "skills/serena/SKILL.md",
+    "skills/graphify/SKILL.md",
+    "skills/code-review-workflow/SKILL.md",
+    "skills/tdd-workflow/SKILL.md",
+  ],
+  "plugin": [
+    "@tarquinen/opencode-dcp@latest",
+    "token-optimizer-opencode",
+    // Local plugins
+    "../plugins",
+  ],
+  "mcp": {
+    "serena": {
+      "type": "remote",
+      "url": "http://localhost:9121/mcp",
+      "enabled": true,
+    },
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp@latest"],
+      "enabled": true,
+    },
+  },
+  // Default agent definitions
+  "agent": {
+    "plan": {
+      "description": "The default planning agent",
+      "mode": "primary",
+      "prompt": "{file:agents/planner.txt}",
+      "reasoningEffort": "max",
+      "tools": { "read": true, "bash": true, "write": false, "edit": false },
+    },
+    "build": {
+      "description": "The default build agent",
+      "mode": "primary",
+      "prompt": "{file:agents/builder.txt}",
+      "reasoningEffort": "max",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": true,
+        "edit": true,
+        "grep": true,
+        "glob": true,
+        "task": true,
+      },
+      "permissions": {
+        "task": {
+          "*": "deny",
+          "build": "deny",
+          "planner": "deny",
+          "coder": "allow",
+          "error-resolver": "allow",
+          "tdd-guide": "allow",
+        },
+      },
+    },
+    // Custom opencode agents
+    "orchestrator": {
+      "description": "Routes every task to the appropriate 'specializer' subagent. Cannot write/edit files directly.",
+      "mode": "primary",
+      "prompt": "{file:agents/orchestrator.txt}",
+      "reasoningEffort": "high",
+      "tools": { "*": true, "write": false, "edit": false },
+      "permissions": {
+        "read": "allow",
+        "write": "deny",
+        "edit": "deny",
+        "bash": "allow",
+        "task": {
+          "*": "deny",
+          "orchestrator": "deny",
+          "planner": "allow",
+          "tdd-guide": "allow",
+          "error-resolver": "allow",
+          "coder": "allow",
+        },
+      },
+    },
+    "planner": {
+      "description": "Fires a planning session.",
+      "mode": "subagent",
+      "prompt": "{file:agents/planner.txt}",
+      "reasoningEffort": "max",
+      "tools": { "read": true, "bash": true, "write": false, "edit": false },
+    },
+    "tdd-guide": {
+      "description": "Fires a TDD-based implementation session.",
+      "mode": "subagent",
+      "prompt": "{file:agents/tdd-guide.txt}",
+      "reasoningEffort": "max",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "grep": true,
+        "glob": true,
+        "task": true,
+      },
+      "permission": {
+        "task": {
+          "*": "deny",
+          "coder": "allow",
+        },
+      },
+    },
+    "error-resolver": {
+      "description": "Fires an error resolution session.",
+      "mode": "subagent",
+      "prompt": "{file:agents/error-resolver.txt}",
+      "reasoningEffort": "max",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "grep": true,
+        "glob": true,
+      },
+    },
+    "code-reviewer": {
+      "description": "Fires a code review session.",
+      "mode": "subagent",
+      "prompt": "{file:agents/code-reviewer.txt}",
+      "reasoningEffort": "max",
+      "tools": {
+        "read": true,
+        "write": false,
+        "edit": false,
+        "bash": true,
+        "grep": true,
+        "glob": true,
+      },
+    },
+    "coder": {
+      "description": "Fires a coder session.",
+      "mode": "subagent",
+      "prompt": "{file:agents/coder.txt}",
+      "reasoningEffort": "max",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "grep": true,
+        "glob": true,
+      },
+    },
+  },
+}
