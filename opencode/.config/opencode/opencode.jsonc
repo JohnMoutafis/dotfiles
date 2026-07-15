@@ -16,13 +16,18 @@
   ],
   "mcp": {
     "serena": {
-      "type": "remote",
-      "url": "http://localhost:9121/mcp",
       "enabled": true,
+      "type": "local",
+      "command": [
+        "serena",
+        "start-mcp-server",
+        "--context=oaicompat-agent",
+        "--project-from-cwd"
+      ]
     },
     "context7": {
-      "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp@latest"],
+      "type": "remote",
+      "url": "http://localhost:8010/mcp",
       "enabled": true,
     },
   },

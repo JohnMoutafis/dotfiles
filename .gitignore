@@ -17,3 +17,7 @@ nvim/.config/nvim/lazyvim.json
 
 # Ignore terminal local-aliases
 terminal/.config/terminal/local-aliases
+
+**/context-mode/
+
+.serena/

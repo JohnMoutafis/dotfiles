@@ -1,0 +1,9 @@
+cache/
+logs/
+natives/
+plugins/
+puppeteer/
+run/
+
+gpu_cache.json
+stats.*

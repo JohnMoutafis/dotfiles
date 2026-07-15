@@ -1,0 +1,18 @@
+providers:
+  openrouter:
+    baseUrl: "https://openrouter.ai/api/v1"
+    api: "openai-completions"
+    apiKey: OPENROUTER_API_KEY
+    models:
+      - id: "@preset/plan"
+        name: "OpenRouter Plan"
+        contextWindow: 500000
+      - id: "@preset/review"
+        name: "OpenRouter Review"
+        contextWindow: 1000000
+      - id: "@preset/worker-fast"
+        name: "OpenRouter Worker (fast)"
+        contextWindow: 500000
+      - id: "@preset/worker"
+        name: "OpenRouter Worker (slow)"
+        contextWindow: 1000000

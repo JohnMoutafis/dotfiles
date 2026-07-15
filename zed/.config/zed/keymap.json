@@ -47,16 +47,31 @@
   //   ctrl-l → editor::ScrollCursorCenter
   //   ctrl-j → editor::JoinLines  (Sublime binding)
   //   ctrl-k → editor::KillRingCut
-  //
   // Note: keeps ctrl-j/k for completion menu navigation in insert mode
+  //
+  // TAB / EDITOR NAVIGATION — vim normal mode
+  //
+  //   shift-L/H: next/prev tab in current pane
+  //   space t  : open tab switcher
+  //   space e  : toggle project panel
+  //   space g  : toggle git panel
+  //   space f  : toggle file finder
   // ─────────────────────────────────────────────────────────────────────────
+
   {
-    "context": "Editor && !(vim_mode == insert && (showing_code_actions || showing_completions))",
+    "context": "Editor && !(vim_mode == insert || (showing_code_actions || showing_completions))",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-w": "pane::CloseActiveItem",
+      "shift-l": "pane::ActivateNextItem",
+      "shift-h": "pane::ActivatePreviousItem",
+      "space t": "tab_switcher::Toggle",
+      "space g": "git_panel::ToggleFocus",
+      "space e": "project_panel::ToggleFocus",
+      // "space f": "file_finder::Toggle",
     },
   },
   {
@@ -89,11 +104,6 @@
   {
     "context": "((vim_mode == normal || vim_mode == visual) || vim_mode == operator)",
     "bindings": {
-      "shift-l": "pane::ActivateNextItem",
-      "shift-h": "pane::ActivatePreviousItem",
-      "space t": "tab_switcher::Toggle",
-      "space g": "git_panel::ToggleFocus",
-      "space e": "project_panel::ToggleFocus",
       // nvim mini.move personal keybindings move line/selection up/down
       "alt-shift-j": "editor::MoveLineDown",
       "alt-shift-k": "editor::MoveLineUp",

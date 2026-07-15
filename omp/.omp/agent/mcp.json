@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/can1357/oh-my-pi/main/packages/coding-agent/src/config/mcp-schema.json",
+  "mcpServers": {
+    "serena": {
+      "command": "serena",
+      "args": [
+        "start-mcp-server",
+        "--context=oaicompat-agent",
+        "--project-from-cwd"
+      ]
+    },
+    "context7": {
+      "type": "http",
+      "url": "http://localhost:8010/mcp"
+    },
+    "context-mode": {
+      "command": "node",
+      "args": [
+        "/home/jmoutafis/.omp/plugins/node_modules/context-mode/cli.bundle.mjs"
+      ]
+    }
+  }
+}

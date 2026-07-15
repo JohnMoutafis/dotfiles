@@ -4,7 +4,7 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
 fi
 
 # ---------------------------------------------------------
-# Inspired by Z-Shift: 
+# Inspired by Z-Shift:
 #   https://github.com/0xdilshan/Z-SHIFT/blob/main/.zshrc
 # ---------------------------------------------------------
 #               ZINIT Source or Install
@@ -105,8 +105,8 @@ HISTDUP=erase
 setopt HIST_IGNORE_ALL_DUPS    # remove older duplicate entries from history
 setopt HIST_EXPIRE_DUPS_FIRST  # expire duplicates first
 setopt HIST_FIND_NO_DUPS       # don't show duplicates in history search
-setopt HIST_IGNORE_SPACE       
-setopt HIST_VERIFY             
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
 setopt HIST_REDUCE_BLANKS      # remove superfluous blanks from history items
 setopt SHARE_HISTORY           # share history between different instances of the shell
 setopt APPEND_HISTORY          # append to history file instead of overwriting
@@ -142,7 +142,4 @@ source $HOME/.config/terminal/aliases
 source $HOME/.config/terminal/functions
 source $HOME/.config/terminal/local-aliases
 
-sunglasses 
-
-# opencode
-export PATH=/home/jmoutafis/.opencode/bin:$PATH
+# sunglasses

@@ -1,0 +1,10 @@
+blobs/
+sessions/
+terminal-sessions/
+memories/
+
+agent.*
+history.*
+last-changelog-version
+models.*
+!models.yml

@@ -4,24 +4,19 @@
 [core]
     editor = nvim
     excludesfile = ~/.gitignore_global
-	autocrlf = input
-
-[alias]
-    update-submodules = submodule update --init --recursive
-    upgrade-submodules = submodule update --init --remote
-    switch-or-create = "!f() { git checkout $1 2>/dev/null || git checkout -b $1; }; f"
-
+    autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[interactive]
+	diffFilter = diff-so-fancy --patch
 [merge]
     tool = meld
 [mergetool "meld"]
     cmd = meld "$BASE $LOCAL $REMOTE $MERGED"
     trustExitCode = false
-
 [diff]
     tool = meld
 [difftool "meld"]
     cmd = meld "$LOCAL $REMOTE"
-
 [lfs]
 	contenttype = 0
 [filter "lfs"]
@@ -29,3 +24,7 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[alias]
+    update-submodules = submodule update --init --recursive
+    upgrade-submodules = submodule update --init --remote
+    switch-or-create = "!f() { git checkout $1 2>/dev/null || git checkout -b $1; }; f"

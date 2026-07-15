@@ -15,9 +15,9 @@ alias shutdown='sudo /sbin/shutdown'
 
 # Only on Linux machines
 if [[ "$OSTYPE" != "darwin"* ]]; then
-  alias update='sudo apt-get update'
-  alias upgrade='sudo apt-get upgrade'
-  alias install='sudo apt-get install'
+  alias update='sudo apt update'
+  alias upgrade='sudo apt upgrade'
+  alias install='sudo apt install'
 
   alias dir='dir --color --group-directories-first'
   alias vdir='vdir --color --group-directories-first'

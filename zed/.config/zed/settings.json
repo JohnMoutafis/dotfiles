@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diff_view_style": "unified",
   "agent_servers": {
     "opencode": {
       "favorite_config_option_values": {
@@ -25,7 +26,12 @@
   // MCP & Agent config
   "context_servers": {
     "serena-ide": {
-      "url": "http://localhost:9122/mcp",
+      "command": "serena",
+      "args": ["start-mcp-server", "--context=ide", "--project-from-cwd"],
+      "enabled": true,
+    },
+    "context7-mcp": {
+      "url": "http://localhost:8010/mcp",
       "enabled": true,
     },
   },
@@ -34,7 +40,7 @@
     "tool_permissions": {
       "tools": {
         "skill": {
-          "default": "allow"
+          "default": "allow",
         },
         "mcp:serena:list_memories": {
           "default": "allow",
@@ -127,10 +133,9 @@
       },
     },
     "default_model": {
-      "effort": "max",
-      "provider": "deepseek",
-      "model": "deepseek-v4-pro",
-      "enable_thinking": true,
+      "provider": "copilot_chat",
+      "model": "kimi-k2.7-code",
+      "enable_thinking": false,
     },
     "sidebar_side": "right",
     "dock": "right",
@@ -147,6 +152,9 @@
     "button": true,
   },
   "project_panel": {
+    "hide_root": true,
+    "hide_gitignore": false,
+    "auto_reveal_entries": false,
     "dock": "left",
   },
   "base_keymap": "VSCode",
@@ -180,6 +188,9 @@
   },
   // Languages
   "languages": {
+    "Django": {
+      "language_servers": ["django-language-server", "django-template-lsp"],
+    },
     "Python": {
       "language_servers": [
         // https://docs.astral.sh/ty/editors/#zed
@@ -195,10 +206,8 @@
         "source.fixAll.ruff": true, // Fix all auto-fixable lint violations
       },
     },
-    "Django": {
-      "language_servers": ["django-language-server", "django-template-lsp"],
-    },
     "Nim": {
+      "format_on_save": "on",
       "auto_indent": "preserve_indent",
       "tab_size": 2,
       "formatter": {
@@ -208,9 +217,13 @@
         },
       },
     },
+    "HTML": {"format_on_save": "on"}
   },
   "global_lsp_settings": {
     "semantic_token_rules": [{ "token_type": "combined" }],
+  },
+  "file_types": {
+    "Django": ["**/templates/**/*.html", "*.dj.*"],
   },
   "file_scan_exclusions": [
     "**/__pycache__",

@@ -1,0 +1,49 @@
+setupVersion: 2
+symbolPreset: nerd
+theme: 
+  dark: titanium
+statusLine: 
+  preset: default
+  transparent: false
+  showHookStatus: true
+personality: pragmatic
+tui: 
+  textSizing: false
+display: 
+  showTokenUsage: true
+  cacheMissMarker: true
+modelRoles: 
+  task: openrouter/@preset/worker-fast
+  smol: openrouter/stealth/ox-alpha:high
+  slow: openrouter/@preset/worker
+  plan: openrouter/@preset/plan
+  default: openrouter/stealth/ox-alpha:max
+task: 
+  agentModelOverrides: 
+    orchestrator: openrouter/@preset/plan
+    reviewer: openrouter/@preset/review
+    tdd: openrouter/@preset/plan
+  agentPrewalk: 
+    tdd: "on"
+providers: 
+  memoryModel: online
+mcp: 
+  notifications: true
+readLineNumbers: true
+proseOnlyThinking: true
+advisor: 
+  enabled: false
+memory: 
+  backend: mnemopi
+mnemopi: 
+  scoping: per-project-tagged
+  llmMode: smol
+autolearn: 
+  enabled: true
+compaction: 
+  handoffSaveToDisk: false
+disabledExtensions: 
+  []
+composer: 
+  shape: box
+extendedContext: false
