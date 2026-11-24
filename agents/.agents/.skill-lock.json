@@ -1,0 +1,44 @@
+{
+  "version": 3,
+  "skills": {
+    "open-code-review-delegate": {
+      "source": "alibaba/open-code-review",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/alibaba/open-code-review.git",
+      "commit": "f6379f71edba1e59dbc056e8f455df1f84396498",
+      "skillPath": "skills/open-code-review-delegate/SKILL.md",
+      "skillFolderHash": "6c7a9c99a6b37ee032010c5190822662858de0aa",
+      "installedAt": "2026-11-24T10:08:24.045Z",
+      "updatedAt": "2026-11-24T10:08:24.045Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "commit": "57217cf86ba38148a57af9e90d14a4c049558330",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-11-24T10:08:29.485Z",
+      "updatedAt": "2026-11-24T10:08:29.485Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "cline",
+    "codex",
+    "cursor",
+    "droid",
+    "fx",
+    "gemini-cli",
+    "github-copilot",
+    "kilo",
+    "kimi-code-cli",
+    "opencode",
+    "pi",
+    "warp",
+    "zed"
+  ]
+}

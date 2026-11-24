@@ -1,10 +1,12 @@
 blobs/
+custom-session-files/
 sessions/
 terminal-sessions/
 memories/
 
+last-changelog-version
+
 agent.*
 history.*
-last-changelog-version
 models.*
 !models.yml

@@ -1,3 +1,42 @@
+# Interaction rules (always apply)
+
+- **Questions go through the `ask` tool. Always.** Never put a question to the
+  user as prose in a reply — not a single question, not a design/grilling round,
+  not a "which do you prefer?" follow-up, not multiple-choice written out as
+  text. Batch related questions into **one** `ask` call: 2–5 options each, short
+  labels, the tradeoff in the option `description`, `recommended` index set.
+  Prose is for reporting findings and recommending a default; `ask` is for
+  asking. The only exception is a question the repo, the filesystem, or a tool
+  can answer — then don't ask at all, go find out.
+
+## Code comments and docstrings (always apply)
+
+- Write code that explains itself: clear names, small units, obvious flow.
+  A comment that restates the code is noise — delete it.
+- Comment only what the code cannot say: non-obvious intent, a real gotcha,
+  a citation, a deliberate tradeoff. Never narrate the next line.
+- Docstrings state purpose in 1–2 sentences. Do not describe the process or
+  walk through the implementation.
+- This holds for every agent and subagent — top-level and delegated alike.
+
+## Documentation and prose style (always apply)
+
+- Write documentation and explanations the way the user writes: direct,
+  no-nonsense, no flowery prose. Short declarative sentences, one idea each.
+- Bullets over prose for anything with steps, branches, or cases. Signature
+  pattern — **state, colon, bullets**: one sentence naming the thing, ending
+  in a colon, then the items as bullets.
+- Any enumeration of 3+ parallel items is a table with exact values.
+- Bold for decisive contrasts ("does **not** re-dispatch", "**by this
+  user**"); bold lead-ins for rules and stages.
+- No legend/meta sections, no journey narration, no marketing adjectives, no
+  unverified specifics — every endpoint, status, limit, or error code must be
+  verifiable against the source.
+- When writing or restructuring documentation pages, load the
+  `write-documentation` skill and follow its STYLE.md in full.
+
+---
+
 # Plan Mode Workflow (OMP-native plan-compose)
 
 When plan mode is active (you receive a `plan-mode-context` message), follow this workflow.

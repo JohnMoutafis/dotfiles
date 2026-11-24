@@ -1,0 +1,33 @@
+{
+  "colors": {
+    "model": "#00b4ff",
+    "shellMode": "#00b4ff",
+    "path": "#0e82a7",
+    "gitClean": "#5FD504",
+    "gitDirty": "#bb9af7",
+    "thinking": "#4a5058",
+    "thinkingMinimal": "#5a6068",
+    "thinkingLow": "#6a7078",
+    "thinkingMedium": "#9ca3b0",
+    "thinkingHigh": "#00b4ff",
+    "thinkingXhigh": "#d4c090",
+    "thinkingMax": "#d4c090",
+    "context": "#9ca3b0",
+    "contextWarn": "#ffb347",
+    "contextError": "#ff4757",
+    "cacheHit": "#00ff88",
+    "cacheHitWarn": "#ffb347",
+    "cacheHitError": "#ff4757",
+    "cost": "#d4c090",
+    "tokens": "#d4c090"
+  },
+  "icons": {
+    "context": "",
+    "folder": "",
+    "branch": "",
+    "github": "",
+    "gitlab": "",
+    "bitbucket": "",
+    "git": ""
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "lastChangelogVersion": "1.6.0",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "glm-5.3-flash",
+  "defaultThinkingLevel": "high",
+  "theme": "tokyo-night",
+  "packages": [
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:context-mode",
+    "npm:pi-powerline-footer",
+    "npm:pi-hashline-edit-pro",
+    "npm:@dietrichgebert/ponytail",
+    "npm:pi-lens"
+  ],
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-lens\",\"scope\":\"user\"}": "4.5.2",
+    "{\"source\":\"npm:pi-powerline-footer\",\"scope\":\"user\"}": "0.22.0"
+  },
+  "powerline": {
+    "welcome": true,
+    "preset": "default",
+    "placement": "above",
+    "workingIndicatorPlacement": "above-powerline",
+    "layout": {
+      "left": [
+        "model",
+        "shell_mode",
+        "path",
+        "git"
+      ],
+      "right": [],
+      "secondary": [
+        "context_pct",
+        "cache_read",
+        "cost"
+      ]
+    },
+    "model": {
+      "showThinkingLevel": true
+    },
+    "path": {
+      "mode": "basename"
+    },
+    "git": {
+      "showBranch": true,
+      "showStaged": true,
+      "showUnstaged": true,
+      "showUntracked": true
+    },
+    "cache_read": {
+      "format": "both"
+    },
+    "cost": {
+      "subscriptionDisplay": "subscription",
+      "currency": "USD"
+    }
+  },
+  "hideThinkingBlock": true
+}

@@ -1,0 +1,14 @@
+# pi agent runtime: packages, session history and credentials are machine-local
+agent/npm/
+agent/sessions/
+agent/run-history.jsonl
+agent/auth.json
+agent/mcp-cache.json
+agent/mcp-onboarding.json
+agent/mcp-auth.json
+agent/models-store.json
+agent/model-usage.json
+agent/trust.json
+
+context-mode/content/
+context-mode/sessions/

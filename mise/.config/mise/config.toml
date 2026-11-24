@@ -1,0 +1,22 @@
+[tools]
+# Languages
+node = "latest"
+
+# Language tools (e.g. package managers)
+uv = "latest"
+
+# Agent Harnesses
+"github:earendil-works/pi" = "latest"             # pi
+"github:can1357/oh-my-pi" = "latest"              # omp
+"npm:@alibaba-group/open-code-review" = "latest"  # open-code-review
+## Agent skills
+"npm:skills" = "latest"
+
+# Python based tools, uses `uv tool install` under the hood
+"pipx:graphifyy" = "latest"
+"pipx:posting" = "latest"
+# Cargo based tools
+"cargo:fixit-cli" = "latest"
+"cargo:kanata" = "latest"
+# Tools directly from github
+"github:so-fancy/diff-so-fancy" = "latest"

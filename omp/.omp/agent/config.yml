@@ -1,49 +1,50 @@
-setupVersion: 2
+setupVersion: 3
 symbolPreset: nerd
-theme: 
+theme:
   dark: titanium
-statusLine: 
+statusLine:
   preset: default
   transparent: false
   showHookStatus: true
 personality: pragmatic
-tui: 
+tui:
   textSizing: false
-display: 
+display:
   showTokenUsage: true
-  cacheMissMarker: true
-modelRoles: 
-  task: openrouter/@preset/worker-fast
-  smol: openrouter/stealth/ox-alpha:high
-  slow: openrouter/@preset/worker
-  plan: openrouter/@preset/plan
-  default: openrouter/stealth/ox-alpha:max
-task: 
-  agentModelOverrides: 
-    orchestrator: openrouter/@preset/plan
-    reviewer: openrouter/@preset/review
-    tdd: openrouter/@preset/plan
-  agentPrewalk: 
-    tdd: "on"
-providers: 
-  memoryModel: online
-mcp: 
+  caheMissMarker: true
+modelRoles:
+  default: opencode-go/deepseek-v4.1-flash:high
+  smol: opencode-go/deepseek-v4.1-flash:low
+  task: opencode-go/deepseek-v4.1-flash
+  slow: opencode-go/deepseek-v4.1-flash:high
+  plan: opencode-go/glm-5.3:high
+task:
+  reviewer: opencode-go/glm-5.3:high
+  eager: preferred
+mp:
   notifications: true
 readLineNumbers: true
 proseOnlyThinking: true
-advisor: 
-  enabled: false
-memory: 
+memory:
   backend: mnemopi
-mnemopi: 
+mnemopi:
   scoping: per-project-tagged
   llmMode: smol
-autolearn: 
+autolearn:
   enabled: true
-compaction: 
-  handoffSaveToDisk: false
-disabledExtensions: 
-  []
-composer: 
+compaction:
+  handoffSaveToDisk: true
+composer:
   shape: box
-extendedContext: false
+temperature: 0.2
+dev:
+  autoqaConsent: granted
+cycleOrder:
+  - smol
+  - default
+  - slow
+  - plan
+defaultThinkingLevel: auto
+hideThinkingBlock: true
+update:
+  auto: false

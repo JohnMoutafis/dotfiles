@@ -1,9 +1,13 @@
+browser-profiles/
 cache/
 logs/
 natives/
 plugins/
 puppeteer/
 run/
+webcache/
 
+autoqa.db
 gpu_cache.json
+install-id
 stats.*
